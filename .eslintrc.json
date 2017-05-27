@@ -1,0 +1,60 @@
+{
+  "plugins": [
+    "jest"
+  ],
+  "extends": [
+    "airbnb",
+    "plugin:jest/recommended"
+  ],
+  "env": {
+    "browser": true,
+    "jest/globals": true
+  },
+  "rules": {
+    "arrow-body-style": 0,
+    "arrow-parens": [2, "always"],
+    "class-methods-use-this": 0,
+    "curly": [2, "all"],
+    "eqeqeq": [2, "always"],
+    "global-require": 1,
+    "indent": [2, 2, { "SwitchCase": 1 }],
+    "linebreak-style": 0,
+    "max-len": 1,
+    "no-console": 0,
+    "no-else-return": 0,
+    "no-case-declarations": 0,
+    "no-param-reassign": [2, { "props": false }],
+    "no-plusplus": [2, { "allowForLoopAfterthoughts": true }],
+    "no-underscore-dangle": 1,
+    "import/named": 2,
+    "import/no-dynamic-require": 1,
+    "import/no-extraneous-dependencies": [2, {
+      "devDependencies": ["**/stories/**/*.js", "**/__tests__/**/*.js"]
+    }],
+    "operator-linebreak": [2, "before"],
+    "radix": 0,
+    "jsx-a11y/alt-text": 1,
+    "jsx-a11y/label-has-for": 1,
+    "jsx-a11y/no-static-element-interactions": 1,
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/no-multi-comp": 0,
+    "react/prefer-stateless-function": 0,
+    "react/prop-types": [2, { "ignore": ["dispatch"] }],
+    "react/sort-comp": [2, {
+      "order": [
+        "type-annotations",
+        "static-methods",
+        "lifecycle",
+        "/^on.+$/",
+        "everything-else",
+        "rendering"
+      ],
+      "groups": {
+        "rendering": [
+          "/^render.+$/",
+          "render"
+        ]
+      }
+    }]
+  }
+}
