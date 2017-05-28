@@ -1,16 +1,25 @@
 import React from 'react';
 import ReactDom from 'react-dom';
+import { Provider } from 'react-redux';
 
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { AppContainer as HotReloadAppContainer } from 'react-hot-loader';
+import { AppContainer as HotLoadAppContainer } from 'react-hot-loader';
 
+import configureStore from '../commons/store/configureStore';
+
+import reducers from './store/reducer/index';
+import sagas from './store/sagas/index';
 import ServiceRoot from './containers/Root';
 
-const render = (Component) => {
+const store = configureStore(reducers, sagas);
+
+const render = (Container) => {
   ReactDom.render(
-    <HotReloadAppContainer>
-      <Component />
-    </HotReloadAppContainer>,
+    <HotLoadAppContainer>
+      <Provider store={store}>
+        <Container />
+      </Provider>
+    </HotLoadAppContainer>,
     document.getElementById('app'),
   );
 };
