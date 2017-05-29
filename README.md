@@ -15,6 +15,7 @@ I would like to discover my current better Frontend Architecture.
 - webpack2
   - react-dev-server
   - react-hot-loader
+- React Storybook
 - ESLint
 - AVA (for reducer and actionCreator)
 - nyc
