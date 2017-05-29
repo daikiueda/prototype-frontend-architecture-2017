@@ -1,11 +1,11 @@
 import test from 'ava';
 
-import saga, { actions } from '../../../../../src/some-service/store/saga/trialSaga';
+import saga, { actions } from '../../../../../src/TooMuchToDo/store/saga/trialSaga';
 
 test('actions/addReport', (t) => {
   t.deepEqual(
     actions.addReport(),
-    { type: 'some-service/report/USER__ADD_REPORT' },
+    { type: 'TooMuchToDo/report/USER__ADD_REPORT' },
   );
 });
 
