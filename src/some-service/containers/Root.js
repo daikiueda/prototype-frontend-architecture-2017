@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { actions } from '../store/sagas/trialSaga';
+import { actions } from '../store/saga/trialSaga';
 
 class Root extends React.PureComponent {
   static get propTypes() {

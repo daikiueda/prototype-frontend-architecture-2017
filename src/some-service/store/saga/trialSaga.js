@@ -15,6 +15,6 @@ sagas[USER__ADD_REPORT] = function* addReport({ payload }) {
   yield put(reportsActions.addReport(payload));
 };
 
-export default function* trialSaga() {
+export default function* saga() {
   yield takeEvery(USER__ADD_REPORT, sagas[USER__ADD_REPORT]);
 }

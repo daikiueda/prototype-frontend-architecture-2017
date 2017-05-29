@@ -50,7 +50,8 @@
       "test/ava/**/*.test.js"
     ],
     "require": [
-      "babel-core/register"
+      "babel-core/register",
+      "babel-polyfill"
     ]
   }
 }
