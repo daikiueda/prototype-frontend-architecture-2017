@@ -4,7 +4,8 @@ export default class ToDo extends Record({
   id: '',
   title: '',
   description: '',
-  isFinished: false,
+  toDos: [],
+  isSaved: false,
 }) {
   isValid() {
     return false;
