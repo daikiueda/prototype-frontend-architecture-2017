@@ -13,5 +13,5 @@ test('saga/root', (t) => {
   const roorGenerator = saga();
 
 
-  t.fali();
+  t.fail();
 });
