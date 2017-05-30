@@ -9,7 +9,7 @@ import ToDoGroupList from '../ToDoGroupList';
 
 import toDoGroupList from './mockes/toDoGroupList';
 
-storiesOf('ToDoGroupList', module)
+storiesOf('TooMuchToDo / ToDoGroupList', module)
   .addWithInfo(
     'standard',
     () => (
