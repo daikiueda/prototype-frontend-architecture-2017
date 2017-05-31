@@ -1,6 +1,7 @@
 .idea
 
 .nyc_output
+.storybook/.story-files.js
 coverage
 node_modules
 

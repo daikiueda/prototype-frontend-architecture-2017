@@ -26,18 +26,26 @@ I would like to discover my current better Frontend Architecture.
 .
 ├── dist
 ├── src
-│   ├── commons
+│   ├── TooMuchTodo
 │   │   ├── components
+│   │   │   └── stories
+│   │   ├── containers
+│   │   ├── domain
+│   │   │   ├── models
+│   │   │   └── transactions
 │   │   └── store
-│   │       └── configureStore.js
-│   └── some-service
-│       ├── containers
+│   │       ├── reducer
+│   │       │   ├── entities
+│   │       │   └── requests
+│   │       └── saga
+│   └── commons
+│       ├── components
 │       └── store
-│           ├── reducer
-│           └── sagas
+│           └── configureStore.js
 └── test
     └── ava
-        └── some-service
+        └── TooMuchTodo
             └── store
-                └── reducer
+                ├── reducer
+                └── saga
 ```

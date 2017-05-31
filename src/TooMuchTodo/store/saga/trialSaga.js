@@ -5,7 +5,7 @@ import { actions as reportsActions } from '../reducer/reports';
 
 const sagas = {};
 
-const USER__ADD_REPORT = 'TooMuchToDo/report/USER__ADD_REPORT';
+const USER__ADD_REPORT = 'TooMuchTodo/report/USER__ADD_REPORT';
 
 export const actions = {
   addReport: createAction(USER__ADD_REPORT),

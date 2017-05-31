@@ -1,10 +1,10 @@
 import { Record } from 'immutable';
 
-export default class ToDo extends Record({
+export default class TodoGroup extends Record({
   id: '',
   title: '',
   description: '',
-  isFinished: false,
+  toDos: [],
   isSaved: false,
 }) {
   isValid() {

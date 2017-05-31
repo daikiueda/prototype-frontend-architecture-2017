@@ -1,1 +1,0 @@
-require('.././src/TooMuchToDo/components/stories/ToDoGroupList.story.js');

@@ -3,7 +3,7 @@ import { createAction } from 'redux-actions';
 
 const INITIAL_STATE = List();
 
-const REDUCER__ADD_REPORT = 'TooMuchToDo/report/REDUCER__ADD_REPORT';
+const REDUCER__ADD_REPORT = 'TooMuchTodo/report/REDUCER__ADD_REPORT';
 
 export const actions = {
   addReport: createAction(REDUCER__ADD_REPORT),

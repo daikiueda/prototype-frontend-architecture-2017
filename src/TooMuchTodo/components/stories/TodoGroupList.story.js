@@ -5,18 +5,18 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 // /* eslint-enable import/no-extraneous-dependencies */
 
-import ToDoGroupList from '../ToDoGroupList';
+import TodoGroupList from '../TodoGroupList';
 
-import toDoGroupList from './mockes/toDoGroupList';
+import todoGroupList from './mockes/todoGroupList';
 
-storiesOf('TooMuchToDo / ToDoGroupList', module)
+storiesOf('TooMuchTodo / TodoGroupList', module)
   .addWithInfo(
     'standard',
     () => (
-      <ToDoGroupList
-        toDoGroups={toDoGroupList}
+      <TodoGroupList
+        toDoGroups={todoGroupList}
       />
     ),
-    { inline: true, source: true, propTables: [ToDoGroupList] },
+    { inline: true, source: true, propTables: [TodoGroupList] },
   );
 
