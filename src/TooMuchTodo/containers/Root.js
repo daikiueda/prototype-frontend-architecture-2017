@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import ToDoGroupList from '../components/TodoGroupList';
+import TodoListTable from '../components/TodoList/Table';
 
-import { actions } from '../store/reducer/entities/todoGroups';
+import { actions } from '../store/modules/entities/todoLists';
 
 class Root extends React.PureComponent {
   static get propTypes() {
@@ -18,8 +18,8 @@ class Root extends React.PureComponent {
     const { dispatch, entities } = this.props;
     return (
       <main>
-        <button onClick={() => dispatch(actions.createTodoGroup({ id: Date.now() }))}>Add</button>
-        <ToDoGroupList toDoGroups={entities.todoGroups} />
+        <button onClick={() => dispatch(actions.createTodoList({ id: Date.now() }))}>Add</button>
+        <TodoListTable toDoGroups={entities.todoGroups} />
       </main>
     );
   }

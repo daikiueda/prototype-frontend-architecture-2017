@@ -1,5 +1,5 @@
 import { List } from 'immutable';
-import TodoGroup from '../../../domain/models/TodoGroup';
+import TodoGroup from '../../../domain/models/TodoList';
 
 const todoGroupList = List([
   new TodoGroup({

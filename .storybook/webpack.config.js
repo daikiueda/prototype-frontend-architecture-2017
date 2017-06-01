@@ -5,7 +5,7 @@ function updateFileList() {
   const glob = require('glob');
 
   const storyFileRequires =
-    glob.sync('./src/**/stories/**/*story.js')
+    glob.sync('./src/**/.stories/**/*story.js')
       .map((filePath) => `require('../${filePath}');`)
       .join('\n');
 
