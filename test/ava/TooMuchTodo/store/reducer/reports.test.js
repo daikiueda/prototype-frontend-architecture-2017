@@ -1,7 +1,7 @@
 import test from 'ava';
 import { List } from 'immutable';
 
-import reducer, { actions } from '../../../../../src/TooMuchTodo/store/reducer/reports';
+import reducer, { actions } from '../../../../../src/TooMuchTodo/store/modules/reports';
 
 test('actions/addReport', (t) => {
   t.deepEqual(
@@ -10,7 +10,7 @@ test('actions/addReport', (t) => {
   );
 });
 
-test('reducer/REDUCER__ADD_REPORT', (t) => {
+test('modules/REDUCER__ADD_REPORT', (t) => {
   const action = {
     type: 'TooMuchTodo/report/REDUCER__ADD_REPORT',
     payload: 1,
