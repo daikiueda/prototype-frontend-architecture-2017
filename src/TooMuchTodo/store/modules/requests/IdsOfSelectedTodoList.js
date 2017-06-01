@@ -6,7 +6,7 @@ const INITIAL_STATE = List();
 const REDUCER__SELECT_TODO_GROUP = 'TooMuchTodo/IdsOfSelectedTodoGroup/REDUCER__ADD_TODO_GROUP';
 
 export const actions = {
-  addTodoGroup: createAction(REDUCER__SELECT_TODO_GROUP),
+  addTodoList: createAction(REDUCER__SELECT_TODO_GROUP),
 };
 
 const processes = {

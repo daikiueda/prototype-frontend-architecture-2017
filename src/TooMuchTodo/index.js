@@ -7,7 +7,7 @@ import { AppContainer as HotLoadAppContainer } from 'react-hot-loader';
 
 import configureStore from '../commons/store/configureStore';
 
-import reducers from './store/reducer/index';
+import reducers from './store/modules/reducers';
 import sagas from './store/saga/index';
 import ServiceRoot from './containers/Root';
 

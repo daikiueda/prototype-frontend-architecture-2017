@@ -1,7 +1,7 @@
 import { createAction } from 'redux-actions';
 import { put, takeEvery } from 'redux-saga/effects';
 
-import { actions as reportsActions } from '../reducer/reports';
+import { actions as reportsActions } from '../modules/reports';
 
 const sagas = {};
 
