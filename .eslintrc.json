@@ -29,7 +29,11 @@
     "import/named": 2,
     "import/no-dynamic-require": 1,
     "import/no-extraneous-dependencies": [2, {
-      "devDependencies": ["**/stories/**/*.js", "**/__tests__/**/*.js", "**/test/**/*.js"]
+      "devDependencies": [
+        "**/stories/**/*.js",
+        "**/__tests__/**/*.js",
+        "**/test/**/*.js"
+      ]
     }],
     "operator-linebreak": [2, "before"],
     "radix": 0,
@@ -56,5 +60,14 @@
         ]
       }
     }]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": [
+          "src"
+        ]
+      }
+    }
   }
 }
