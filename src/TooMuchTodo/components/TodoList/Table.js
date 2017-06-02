@@ -5,22 +5,22 @@ import { List } from 'immutable';
 export default class ToDoGroupList extends React.Component {
   static get propTypes() {
     return {
-      todoGroups: PropTypes.instanceOf(List),
+      todoLists: PropTypes.instanceOf(List),
     };
   }
 
   static get defaultProps() {
     return {
-      todoGroups: List(),
+      todoLists: List(),
     };
   }
 
-  renderTodoGroupRecord(todoGroup) {
+  renderTodoListRecord(todoList) {
     return (
-      <tr key={todoGroup.id}>
+      <tr key={todoList.id}>
         <td><input type="checkbox" /></td>
-        <td>{todoGroup.title}</td>
-        <td>{todoGroup.description}</td>
+        <td>{todoList.title}</td>
+        <td>{todoList.description}</td>
         <td>
           <button>Edit</button>
           <button>Delete</button>
@@ -36,7 +36,7 @@ export default class ToDoGroupList extends React.Component {
     return (
       <table>
         <tbody>
-          {this.props.todoGroups.map(this.renderTodoGroupRecord)}
+          {this.props.todoLists.map(this.renderTodoListRecord)}
         </tbody>
       </table>
     );

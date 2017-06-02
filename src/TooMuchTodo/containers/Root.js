@@ -19,7 +19,7 @@ class Root extends React.PureComponent {
     return (
       <main>
         <button onClick={() => dispatch(actions.createTodoList({ id: Date.now() }))}>Add</button>
-        <TodoListTable toDoGroups={entities.todoGroups} />
+        <TodoListTable toDoGroups={entities.todoList} />
       </main>
     );
   }
