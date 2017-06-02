@@ -7,7 +7,7 @@ import { action } from '@storybook/addon-actions';
 
 import TodoListTable from '../TodoList/Table';
 
-import todoLists from './mockes/todoLists';
+import todoLists from './mocks/todoLists';
 
 storiesOf('TooMuchTodo / TodoListTable', module)
   .addWithInfo(
