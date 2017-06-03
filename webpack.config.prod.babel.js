@@ -35,7 +35,19 @@ export const module_ = { // eslint-disable-line no-underscore-dangle
     },
     {
       test: /\.scss$/,
-      loaders: ['style-loader', 'css-loader', 'sass-loader'],
+      loaders: [
+        'style-loader',
+        'css-loader',
+        {
+          loader: 'sass-loader',
+          options: {
+            data: '@import "global-import";',
+            includePaths: [
+              path.join(__dirname, './src/commons/styles'),
+            ],
+          },
+        },
+      ],
     },
   ],
 };
