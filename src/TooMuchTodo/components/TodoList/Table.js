@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { List } from 'immutable';
 
-export default class ToDoGroupList extends React.Component {
+export default class Table extends React.Component {
   static get propTypes() {
     return {
       todoLists: PropTypes.instanceOf(List),
