@@ -1,3 +1,7 @@
+require('babel-register');
+
+const module_ = require('../webpack.config.prod.babel').module_;
+
 // Informal Hooking :p
 function updateFileList() {
   const fs = require('fs');
@@ -15,9 +19,18 @@ function updateFileList() {
     'UTF-8'
   );
 }
-
 updateFileList();
 
-module.exports = function(storybookBaseConfig) {
+module.exports =  function(storybookBaseConfig) {
+  const adoptions = ['.css', '.scss'];
+
+  storybookBaseConfig.module.rules.push(
+    ...module_.rules
+      .filter(rule => adoptions
+        .map(type => rule.test.test(type))
+        .reduce((prev, res) => prev || res)
+      )
+  );
+
   return storybookBaseConfig;
 };
