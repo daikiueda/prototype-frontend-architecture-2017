@@ -15,13 +15,47 @@ class Root extends React.PureComponent {
     };
   }
 
+  constructor(props) {
+    super(props);
+    this.state = { panes: 1 };
+
+    this.addPane = this.addPane.bind(this);
+    this.removePane = this.removePane.bind(this);
+  }
+
+  addPane() {
+    this.setState({
+      panes: this.state.panes + 1,
+    });
+  }
+
+  removePane() {
+    this.setState({
+      panes: this.state.panes - 1,
+    });
+  }
+
   render() {
     const { dispatch, entities } = this.props;
-    return (
-      <main>
-        <LayeredSlidingPanes />
+
+    const panes = [];
+    panes.push(
+      <div key="hoge">
         <button onClick={() => dispatch(actions.createTodoList({ id: Date.now() }))}>Add</button>
-        <TodoListTable todoLists={entities.todoList} />
+        <TodoListTable todoLists={entities.todoList.toArray()} />
+      </div>,
+    );
+    for (let i = 0; i < this.state.panes; i++) {
+      panes.push(<div key={i}>{i}</div>);
+    }
+
+    return (
+      <main style={{ height: 400 }}>
+        <button onClick={this.addPane}>Add Pane</button>
+        <button onClick={this.removePane}>Remove Pane</button>
+        <LayeredSlidingPanes>
+          {panes}
+        </LayeredSlidingPanes>
       </main>
     );
   }
