@@ -1,9 +1,6 @@
 import React from 'react';
-
-/* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-// /* eslint-enable import/no-extraneous-dependencies */
+// import { action } from '@storybook/addon-actions';
 
 import TodoListTable from '../TodoList/Table';
 
@@ -14,7 +11,7 @@ storiesOf('TooMuchTodo / TodoListTable', module)
     'standard',
     () => (
       <TodoListTable
-        toDoGroups={todoLists}
+        todoLists={todoLists}
       />
     ),
     { inline: true, source: true, propTables: [TodoListTable] },

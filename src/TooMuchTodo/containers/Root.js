@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+import LayeredSlidingPanes from '../../commons/components/frame/LayeredSlidingPanes';
 import TodoListTable from '../components/TodoList/Table';
 
 import { actions } from '../store/modules/entities/todoLists';
@@ -18,8 +19,9 @@ class Root extends React.PureComponent {
     const { dispatch, entities } = this.props;
     return (
       <main>
+        <LayeredSlidingPanes />
         <button onClick={() => dispatch(actions.createTodoList({ id: Date.now() }))}>Add</button>
-        <TodoListTable toDoGroups={entities.todoList} />
+        <TodoListTable todoLists={entities.todoList} />
       </main>
     );
   }
