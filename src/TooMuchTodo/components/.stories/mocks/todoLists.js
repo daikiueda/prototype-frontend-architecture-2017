@@ -1,7 +1,7 @@
 import { List } from 'immutable';
 import TodoGroup from '../../../domain/models/TodoList';
 
-const todoGroupList = List([
+const todoGroupList = [
   new TodoGroup({
     id: 'TDG-0001',
     title: 'サンプルTODO - 1',
@@ -12,6 +12,6 @@ const todoGroupList = List([
     title: 'サンプルTODO - 2',
     description: 'サンプルTODO - 2についての説明！記述！',
   }),
-]);
+];
 
 export default todoGroupList;

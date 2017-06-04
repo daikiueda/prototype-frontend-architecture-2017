@@ -1,17 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { List } from 'immutable';
+import TodoList from '../../domain/models/TodoList';
 
 export default class Table extends React.Component {
   static get propTypes() {
     return {
-      todoLists: PropTypes.instanceOf(List),
+      todoLists: PropTypes.arrayOf(PropTypes.instanceOf(TodoList)),
     };
   }
 
   static get defaultProps() {
     return {
-      todoLists: List(),
+      todoLists: [],
     };
   }
 
