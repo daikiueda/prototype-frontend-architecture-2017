@@ -37,8 +37,8 @@ export default class LayeredSlidingPanes extends React.Component {
         component="div"
         className={`${CSS_ROOT}`}
         transitionName="transition"
-        transitionEnterTimeout={1}
-        transitionLeaveTimeout={1}
+        transitionEnterTimeout={16}
+        transitionLeaveTimeout={16}
       >
         {contents.map((child, index) => {
           const className
