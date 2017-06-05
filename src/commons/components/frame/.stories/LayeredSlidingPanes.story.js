@@ -9,9 +9,9 @@ storiesOf('commons / frame / LayeredSlidingPanes', module)
     () => (
       <div style={{ height: '400px' }}>
         <LayeredSlidingPanes>
-          <div style={{ height: '100%', background: 'red' }}>aaaaa</div>
-          <div style={{ height: '100%', background: 'green' }}>bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb </div>
-          <div style={{ height: '100%', background: 'blue' }}>ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc </div>
+          <div>aaaaa</div>
+          <div>bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb </div>
+          <div>ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc </div>
         </LayeredSlidingPanes>
       </div>
     ),
@@ -22,8 +22,8 @@ storiesOf('commons / frame / LayeredSlidingPanes', module)
     () => (
       <div style={{ height: '400px' }}>
         <LayeredSlidingPanes>
-          <div style={{ height: '100%', background: 'green' }}>bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb </div>
-          <div style={{ height: '100%', background: 'blue' }}>ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc </div>
+          <div>bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb </div>
+          <div>ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc </div>
         </LayeredSlidingPanes>
       </div>
     ),
@@ -34,7 +34,7 @@ storiesOf('commons / frame / LayeredSlidingPanes', module)
     () => (
       <div style={{ height: '400px' }}>
         <LayeredSlidingPanes>
-          <div style={{ height: '100%', background: 'blue' }}>ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc </div>
+          <div>ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc </div>
         </LayeredSlidingPanes>
       </div>
     ),
