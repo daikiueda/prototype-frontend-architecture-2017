@@ -41,8 +41,8 @@ class Root extends React.PureComponent {
     const panes = [];
     panes.push(
       <div key="hoge">
-        <button onClick={() => dispatch(actions.createTodoList({ id: Date.now() }))}>Add</button>
-        <TodoListTable todoLists={entities.todoList.toArray()} />
+        <button onClick={() => dispatch(actions.createTodoList())}>Add</button>
+        <TodoListTable todoListEntities={entities.todoList} />
       </div>,
     );
     for (let i = 0; i < this.state.panes; i++) {
