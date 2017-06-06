@@ -1,7 +1,7 @@
 import test from 'ava';
 import { Map } from 'immutable';
 
-import reducer, { actions } from 'TooMuchTodo/store/modules/entities/todoLists';
+import reducer, { actions } from 'TooMuchTodo/store/modules/entities/todoList';
 
 import TodoList from 'TooMuchTodo/domain/models/TodoList';
 

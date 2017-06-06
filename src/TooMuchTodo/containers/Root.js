@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import LayeredSlidingPanes from '../../commons/components/frame/LayeredSlidingPanes';
 import TodoListTable from '../components/TodoList/Table';
 
-import { actions } from '../store/modules/entities/todoLists';
+import { actions } from '../store/modules/entities/todoList';
 
 class Root extends React.PureComponent {
   static get propTypes() {
