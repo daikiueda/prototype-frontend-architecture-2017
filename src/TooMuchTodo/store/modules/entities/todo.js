@@ -1,25 +1,25 @@
 import { Map } from 'immutable';
 import { createAction } from 'redux-actions';
 
-import TodoList from '../../../domain/models/TodoList';
+import Todo from '../../../domain/models/Todo';
 
 const INITIAL_STATE = Map();
 
 const ACTIONS = {
-  CREATE: 'TooMuchTodo/todoLists/REDUCER__CREATE_TODO_LIST',
-  ADD: 'TooMuchTodo/todoLists/REDUCER__ADD_TODO_LIST',
+  CREATE: 'TooMuchTodo/todoLists/REDUCER__CREATE_TODO',
+  ADD: 'TooMuchTodo/todoLists/REDUCER__ADD_TODO',
 };
 
 export const actions = {
-  createTodoList: createAction(ACTIONS.CREATE),
-  addTodoList: createAction(ACTIONS.ADD),
+  createTodo: createAction(ACTIONS.CREATE),
+  addTodo: createAction(ACTIONS.ADD),
 };
 
 const processes = {
   [ACTIONS.CREATE]: (state) => {
     // Todo 要否検討：生成してストアに投入する処理だと、使い所がないかも…
-    const todoList = new TodoList({ id: Date.now() });
-    return state.set(todoList.id, todoList);
+    const todo = new Todo({ id: Date.now() });
+    return state.set(todo.id, todo);
   },
 
   [ACTIONS.ADD]: (state, payload) => {
