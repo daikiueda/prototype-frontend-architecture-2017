@@ -1,6 +1,7 @@
 import test from 'ava';
 import { createStore } from 'redux';
 
+import { fromJS } from 'immutable';
 import { denormalize, schema } from 'normalizr';
 
 import Todo from 'TooMuchTodo/domain/models/Todo';
@@ -10,42 +11,23 @@ import reducers from 'TooMuchTodo/store/modules/reducers';
 import { actions as todoActions } from 'TooMuchTodo/store/modules/entities/todo';
 import { actions as todoListActions } from 'TooMuchTodo/store/modules/entities/todoList';
 
-
 test('仮置き：denormalizeのテスト', (t) => {
   const store = createStore(reducers);
-  store.dispatch(todoActions.addTodo({ id: '1' }));
-  store.dispatch(todoActions.addTodo({ id: '2' }));
-  // store.dispatch(todoActions.addTodo(new Todo({ id: '1' })));
-  // store.dispatch(todoActions.addTodo(new Todo({ id: '2' })));
-  // store.dispatch(todoListActions.addTodoList(new TodoList({ id: '1', todos: ['1', '2'] })));
-  store.dispatch(todoListActions.addTodoList({ id: '1', todos: ['1', '2'] }));
-  // console.log(store.getState().entities);
-
-  const tempEntities = {
-    todo: {
-      1: new Todo({ id: 1 }),
-      2: new Todo({ id: 2 }),
-    },
-    todoList: {
-      1: new TodoList({
-        id: 1,
-        todos: [1, 2],
-      }),
-      2: new TodoList({
-        id: 2,
-        todos: [1, 2],
-      }),
-    },
-  };
+  store.dispatch(todoActions.addTodo(new Todo({ id: '1' })));
+  store.dispatch(todoActions.addTodo(new Todo({ id: '2' })));
+  store.dispatch(todoListActions.addTodoList(new TodoList({ id: '1', todos: ['1', '2'] })));
+  store.dispatch(todoListActions.addTodoList(new TodoList({ id: '2', todos: ['1', '2'] })));
 
   const todoScheme = new schema.Entity('todo');
   const todoListScheme = new schema.Entity('todoList', { todos: [todoScheme] });
   const mySchema = { todoList: [todoListScheme] };
-  const denormalizeData = denormalize({ todoList: [1, 2] }, mySchema, tempEntities);
-  const denormalizeData = denormalize({ todoList: [1, 2] }, mySchema, store.getState().entities));
+
+  const denormalizeData = denormalize(
+    { todoList: [1, 2] },
+    mySchema,
+    fromJS(store.getState().entities),
+  );
   console.log(denormalizeData);
-  console.log(denormalizeData.todoList[1].todos);
-  // console.log(denormalize({ todoLists: ['1'] }, mySchema, store.getState().entities));
 });
 
 test('？', (t) => {
