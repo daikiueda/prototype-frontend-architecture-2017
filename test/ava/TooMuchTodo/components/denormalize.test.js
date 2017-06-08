@@ -31,13 +31,20 @@ test('仮置き：denormalizeのテスト', (t) => {
         id: 1,
         todos: [1, 2],
       }),
+      2: new TodoList({
+        id: 2,
+        todos: [1, 2],
+      }),
     },
   };
 
-  const todo = new schema.Entity('todos');
-  const todoList = new schema.Entity('todoLists', { todos: [todo] });
-  const mySchema = { todoLists: [todoList] };
-  console.log(denormalize({ todoLists: ['1'] }, mySchema, tempEntities));
+  const todoScheme = new schema.Entity('todo');
+  const todoListScheme = new schema.Entity('todoList', { todos: [todoScheme] });
+  const mySchema = { todoList: [todoListScheme] };
+  const denormalizeData = denormalize({ todoList: [1, 2] }, mySchema, tempEntities);
+  const denormalizeData = denormalize({ todoList: [1, 2] }, mySchema, store.getState().entities));
+  console.log(denormalizeData);
+  console.log(denormalizeData.todoList[1].todos);
   // console.log(denormalize({ todoLists: ['1'] }, mySchema, store.getState().entities));
 });
 
