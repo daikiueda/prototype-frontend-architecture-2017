@@ -1,4 +1,9 @@
 import { Record, List } from 'immutable';
+import { schema } from 'normalizr';
+
+import { todoSchema } from './Todo';
+
+export const todoListSchema = new schema.Entity('TodoList', { todos: [todoSchema] });
 
 export default class TodoList extends Record({
   id: '',
