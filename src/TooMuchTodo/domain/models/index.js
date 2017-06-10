@@ -6,7 +6,7 @@ export const schemas = new Map([
   [TodoList.name, todoListSchema],
 ]);
 
-export default new Map([
-  [Todo.name, Todo],
-  [TodoList.name, TodoList],
-]);
+export default {
+  Todo,
+  TodoList,
+};

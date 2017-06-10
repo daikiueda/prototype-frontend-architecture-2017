@@ -34,8 +34,7 @@ export default function normalizeImmutableModelEntities(payloadEntities) {
   // 新規Map[モデル名][id]に詰めて返却する
   return Array.from(normalizedObjectEntities)
     .reduce((recreatedMap, [entityKey, entityObjects]) => {
-      const ModelClass = models.get(entityKey);
-
+      const ModelClass = models[entityKey];
       return recreatedMap.set(
         entityKey,
         Immutable.Map(
