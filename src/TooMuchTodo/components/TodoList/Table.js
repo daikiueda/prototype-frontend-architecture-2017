@@ -1,22 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import immutable from 'immutable';
+import Immutable from 'immutable';
 
 export default class Table extends React.Component {
   static get propTypes() {
     return {
-      todoListEntities: PropTypes.shape({
-        byId: PropTypes.oneOfType([
-          PropTypes.instanceOf(immutable.Map),
-          PropTypes.instanceOf(Map),
-        ]),
-      }),
+      todoListEntities: PropTypes.oneOfType([
+        PropTypes.instanceOf(Immutable.Map),
+      ]),
     };
   }
 
   static get defaultProps() {
     return {
-      todoListEntities: { byId: new Map(), allIds: new Set() },
+      todoListEntities: Immutable.Map(),
     };
   }
 
@@ -27,7 +24,7 @@ export default class Table extends React.Component {
 
   renderTodoListRows() {
     const rows = [];
-    this.props.todoListEntities.byId.forEach((todoList) => {
+    this.props.todoListEntities.forEach((todoList) => {
       rows.push(
         <tr key={todoList.id}>
           <td><input type="checkbox" /></td>
