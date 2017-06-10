@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
-import entities from './entities/reducers';
+import entities from './entities';
 import requests from './ui/reducers';
 
 const reducers = combineReducers({

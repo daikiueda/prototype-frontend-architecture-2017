@@ -1,7 +1,7 @@
 import { createAction } from 'redux-actions';
 import { put, takeEvery } from 'redux-saga/effects';
 
-import { actions as reportsActions } from '../modules/entities/todoList';
+// import { actions as reportsActions } from '../modules/entities/todoList';
 
 const sagas = {};
 
@@ -12,7 +12,7 @@ export const actions = {
 };
 
 sagas[USER__ADD_REPORT] = function* addReport({ payload }) {
-  yield put(reportsActions.addReport(payload));
+  // yield put(reportsActions.addReport(payload));
 };
 
 export default function* saga() {
