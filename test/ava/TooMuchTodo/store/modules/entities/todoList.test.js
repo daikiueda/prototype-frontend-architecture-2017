@@ -19,7 +19,7 @@ test('modules/REDUCER__ADD_REPORT', (t) => {
   };
 
   t.deepEqual(
-    reducer(Map(), action).toJSON(),
+    reducer(Map(), action).toJS(),
     {
       1111: {
         description: '',
