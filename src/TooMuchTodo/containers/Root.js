@@ -2,60 +2,25 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import LayeredSlidingPanes from '../../commons/components/frame/LayeredSlidingPanes';
-import TodoListTable from '../components/TodoList/Table';
+import models from '../domain/models';
+import { actions as entitiesActions } from '../store/modules/entities';
 
-import { actions } from '../store/modules/entities/todoList';
+import TodoListTable from '../components/TodoList/Table';
 
 class Root extends React.PureComponent {
   static get propTypes() {
     return {
       entities: PropTypes.object.isRequired,
-      // requests: PropTypes.object.isRequired,
+      // ui: PropTypes.object.isRequired,
     };
-  }
-
-  constructor(props) {
-    super(props);
-    this.state = { panes: 1 };
-
-    this.addPane = this.addPane.bind(this);
-    this.removePane = this.removePane.bind(this);
-  }
-
-  addPane() {
-    this.setState({
-      panes: this.state.panes + 1,
-    });
-  }
-
-  removePane() {
-    this.setState({
-      panes: this.state.panes - 1,
-    });
   }
 
   render() {
     const { dispatch, entities } = this.props;
-
-    const panes = [];
-    panes.push(
-      <div key="hoge">
-        <button onClick={() => dispatch(actions.createTodoList())}>Add</button>
-        <TodoListTable todoListEntities={entities.todoList} />
-      </div>,
-    );
-    for (let i = 0; i < this.state.panes; i++) {
-      panes.push(<div key={i}>{i}</div>);
-    }
-
     return (
-      <main style={{ height: 400 }}>
-        <button onClick={this.addPane}>Add Pane</button>
-        <button onClick={this.removePane}>Remove Pane</button>
-        <LayeredSlidingPanes>
-          {panes}
-        </LayeredSlidingPanes>
+      <main>
+        <button onClick={() => dispatch(entitiesActions.create(models.TodoList))}>Add</button>
+        <TodoListTable todoListEntities={entities.get('TodoList')} />
       </main>
     );
   }
