@@ -1,5 +1,6 @@
-import { Map } from 'immutable';
 import { createAction } from 'redux-actions';
+import { Map } from 'immutable';
+import normalizeImmutableModelEntities from './entities-helpers';
 
 const INITIAL_STATE = Map();
 
@@ -13,15 +14,8 @@ export const actions = {
 
 const processes = {
   [ACTIONS.ADD]: (state, payload) => {
-    const entities = Array.isArray(payload) ? payload : [payload];
-
-    const normalized = entities.map((entity) => ({
-      // TODO: Apply normalizr?
-      [entity.constructor.name]: {
-        [entity.id]: entity,
-      },
-    }));
-    return state.mergeDeep(...normalized);
+    const normalized = normalizeImmutableModelEntities(payload);
+    return state.mergeDeep(normalized);
   },
 };
 
