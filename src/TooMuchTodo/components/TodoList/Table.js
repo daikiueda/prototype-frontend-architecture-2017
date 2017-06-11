@@ -1,26 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Immutable from 'immutable';
+
+import TodoList from '../../domain/models/TodoList';
 
 export default class Table extends React.Component {
   static get propTypes() {
     return {
-      todoListEntities: PropTypes.oneOfType([
-        PropTypes.instanceOf(Immutable.Map),
-      ]),
+      todoListEntities: PropTypes.arrayOf(
+        PropTypes.instanceOf(TodoList),
+      ),
     };
   }
 
   static get defaultProps() {
     return {
-      todoListEntities: Immutable.Map(),
+      todoListEntities: [],
     };
   }
-
-  // constructor(props) {
-  //   super(props);
-  //   this.renderTodoListRows = this.renderTodoListRows.bind(this);
-  // }
 
   renderTodoListRows() {
     const rows = [];

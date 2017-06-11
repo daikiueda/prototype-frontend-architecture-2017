@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { fromJS } from 'immutable';
+import { denormalize } from 'normalizr';
 
-import models from '../domain/models';
+import models, { schemas } from '../domain/models';
 import { actions as entitiesActions } from '../store/modules/entities';
 
 import TodoListTable from '../components/TodoList/Table';
@@ -20,10 +22,34 @@ class Root extends React.PureComponent {
     return (
       <main>
         <button onClick={() => dispatch(entitiesActions.create(models.TodoList))}>Add</button>
-        <TodoListTable todoListEntities={entities.get('TodoList')} />
+        <TodoListTable todoListEntities={entities.TodoList} />
       </main>
     );
   }
 }
 
-export default connect((state) => state)(Root);
+// TODO: commonsに置くべきものにできそう？
+const pickEntitiesAndSchemas = (targetEntityNames, allEntities) =>
+  targetEntityNames.reduce((pickedEntitiesAndSchemes, entityName) => {
+    // e.g. { users: [ 1, 2 ] }
+    pickedEntitiesAndSchemes[0][entityName]
+      = Array.from(allEntities.get(entityName) || new Map()).map(([key]) => key);
+
+    // e.g. { users: [new schema.Entity('users')] }
+    pickedEntitiesAndSchemes[1][entityName] = [schemas.get(entityName)];
+    return pickedEntitiesAndSchemes;
+  }, [{}, {}]);
+
+const mapStateToProps = (state) => {
+  const { entities, ...restProps } = state;
+  return {
+    ...restProps,
+    entities: denormalize(
+      // TODO: すべてのデータを渡した方が良い？いずれ検討
+      ...pickEntitiesAndSchemas(['TodoList'], entities),
+      fromJS(entities),
+    ),
+  };
+};
+
+export default connect(mapStateToProps)(Root);
