@@ -4,48 +4,60 @@ I would like to discover my current better Frontend Architecture.
 
 ## Using...
 
-- React
-- Redux
+- [Immutable.js](https://facebook.github.io/immutable-js/)
+  - *`Record` as **Model Class**.
+- [Redux](http://redux.js.org/)
+  - [normalizr](https://github.com/paularmstrong/normalizr)
+    - **`normalize`** in `reducer` and **`denormalize`** in `mapStateToProps`.
+      `schema.Entity` is near the Model Class.
+    - So, there is only one  reducer for all Entities.
   - Ducks pattern
-  - redux-saga
-- Immutable.js
+  - [PLANED] reselect?
+  - [PLANED] redux-saga?
+- [React](https://facebook.github.io/react/)
+  - [CSS Modules](https://github.com/css-modules/css-modules)
+    - It is a good idea to keep a Component and a Style One-to-One.
+    - So, I would like to do the same for standard elements (Button, Table, etc.).
 
 **and more**
 
 - webpack2
-  - react-dev-server
+  - webpack-dev-server
   - react-hot-loader
 - React Storybook
 - ESLint
 - AVA (for reducer and actionCreator)
-- nyc
+  - nyc
 
 ## Directory Structure
 
 ```
 .
-├── dist
 ├── src
-│   ├── TooMuchTodo
+│   ├── some-service
 │   │   ├── components
-│   │   │   └── stories
 │   │   ├── containers
 │   │   ├── domain
 │   │   │   ├── models
 │   │   │   └── transactions
 │   │   └── store
-│   │       ├── reducer
+│   │       ├── modules
 │   │       │   ├── entities
-│   │       │   └── requests
+│   │       │   └── ui
 │   │       └── saga
 │   └── commons
 │       ├── components
+│       │   ├── _global-import-styles
+│       │   │   └── constants
+│       │   │       └── _colors-border.scss
+│       │   └── elements
+│       │       ├── BaseElement.js
+│       │       ├── Table.js
+│       │       └── Table.scss
 │       └── store
-│           └── configureStore.js
+│           └── configureStore.js
 └── test
     └── ava
-        └── TooMuchTodo
-            └── store
-                ├── reducer
-                └── saga
+        ├── some-service
+        └── commons
 ```
