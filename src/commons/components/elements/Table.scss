@@ -1,4 +1,22 @@
-.commons--elements--table {
-  color: red;
-  border: solid 1px $COLOR-BORDER-PRIMARY;
+.commons-elements__table {
+  $vertical-padding: (($LINE_HEIGHT_STANDARD * 3 / 2) - $FONT_SIZE_STANDARD) / 2;
+
+  border-collapse: separate;
+  border-spacing: 0;
+  box-shadow: $BOX_SHADOW_STANDARD;
+
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr > th,
+    > tr > td {
+      border-top: solid 0.1rem $COLOR-BORDER-PRIMARY;
+      padding: $vertical-padding ($SPACE_BASE_HORIZONTAL / 2) $vertical-padding - 0.1rem;
+
+      &:first-child { padding-left: $SPACE_BASE_HORIZONTAL; }
+      &:last-child { padding-right: $SPACE_BASE_HORIZONTAL; }
+    }
+  }
+
+  //button, input {display: none;}
 }
