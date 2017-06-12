@@ -6,7 +6,7 @@ import TodoList from '../../domain/models/TodoList';
 export default class Table extends React.Component {
   static get propTypes() {
     return {
-      todoListEntities: PropTypes.arrayOf(
+      todoLists: PropTypes.arrayOf(
         PropTypes.instanceOf(TodoList),
       ),
     };
@@ -14,13 +14,13 @@ export default class Table extends React.Component {
 
   static get defaultProps() {
     return {
-      todoListEntities: [],
+      todoLists: [],
     };
   }
 
   renderTodoListRows() {
     const rows = [];
-    this.props.todoListEntities.forEach((todoList) => {
+    this.props.todoLists.forEach((todoList) => {
       rows.push(
         <tr key={todoList.id}>
           <td><input type="checkbox" /></td>
