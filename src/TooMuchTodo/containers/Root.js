@@ -8,7 +8,7 @@ import models, { schemas } from '../domain/models';
 import { actions as entitiesActions } from '../store/modules/entities';
 
 import '../../commons/components/foundational-styles.scss';
-import TodoListTable from '../components/TodoList/Table';
+import TodoListListTable from '../components/TodoList/ListTable';
 
 class Root extends React.PureComponent {
   static get propTypes() {
@@ -23,7 +23,7 @@ class Root extends React.PureComponent {
     return (
       <main>
         <button onClick={() => dispatch(entitiesActions.create(models.TodoList))}>Add</button>
-        <TodoListTable todoLists={entities.TodoList} />
+        <TodoListListTable todoLists={entities.TodoList} />
       </main>
     );
   }

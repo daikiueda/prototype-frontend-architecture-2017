@@ -1,19 +1,18 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-// import { action } from '@storybook/addon-actions';
 
-import TodoListTable from '../TodoList/Table';
+import TodoListListTable from '../TodoList/ListTable';
 
 import todoLists from './mocks/todoLists';
 
-storiesOf('TooMuchTodo / TodoListTable', module)
+storiesOf('TooMuchTodo / TodoListListTable', module)
   .addWithInfo(
     'standard',
     () => (
-      <TodoListTable
+      <TodoListListTable
         todoLists={todoLists}
       />
     ),
-    { inline: true, source: true, propTables: [TodoListTable] },
+    { inline: true, source: true, propTables: [TodoListListTable] },
   );
 

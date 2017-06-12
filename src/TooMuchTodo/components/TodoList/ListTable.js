@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import Table from '../../../commons/components/elements/Table';
 import TodoList from '../../domain/models/TodoList';
 
-export default class Table extends React.Component {
+export default class ListTable extends React.Component {
   static get propTypes() {
     return {
       todoLists: PropTypes.arrayOf(
@@ -41,11 +42,11 @@ export default class Table extends React.Component {
 
   render() {
     return (
-      <table>
+      <Table>
         <tbody>
           { this.renderTodoListRows() }
         </tbody>
-      </table>
+      </Table>
     );
   }
 }
