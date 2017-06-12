@@ -1,0 +1,24 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700);
+@import url(https://fonts.googleapis.com/earlyaccess/notosansjp.css);
+@import "~normalize.css";
+
+html {
+  height: 100%;
+  font-size: $FONT_SIZE_REM_BASE_FOR_HTML_ELEMENT;
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+  background: $COLOR_BACKGROUND_BASE;
+  line-height: $LINE_HEIGHT_BASE;
+  font-size: $FONT_SIZE_STANDARD;
+}
+
+
+body,
+input,
+button {
+  font-family: $FONT_FAMILY;
+  color: $COLOR-FONT-PRIMARY;
+}

@@ -7,6 +7,7 @@ import { denormalize } from 'normalizr';
 import models, { schemas } from '../domain/models';
 import { actions as entitiesActions } from '../store/modules/entities';
 
+import '../../commons/components/foundational-styles.scss';
 import TodoListTable from '../components/TodoList/Table';
 
 class Root extends React.PureComponent {
