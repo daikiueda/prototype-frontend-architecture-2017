@@ -14,6 +14,7 @@ I would like to discover my current better Frontend Architecture.
   - Ducks pattern
   - [PLANED] reselect?
   - [PLANED] redux-saga?
+  - [PLANED] redux-form?
 - [React](https://facebook.github.io/react/)
   - [CSS Modules](https://github.com/css-modules/css-modules)
     - It is a good idea to keep a Component and a Style One-to-One.
