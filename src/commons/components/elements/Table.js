@@ -8,6 +8,6 @@ export default class Table extends BaseElement {
   }
 
   static get CSS_ROOT() {
-    return 'commons-elements__table';
+    return 'commons--elements__table';
   }
 }

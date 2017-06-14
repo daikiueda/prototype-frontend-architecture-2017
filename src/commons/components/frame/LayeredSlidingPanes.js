@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { CSSTransitionGroup } from 'react-transition-group'; // ES6
+import { CSSTransitionGroup } from 'react-transition-group';
 
 import './LayeredSlidingPanes.scss';
 
-const CSS_ROOT = 'commons--frame--Layered-Sliding-Panes';
+const CSS_ROOT = 'commons--frame--layered-sliding-panes';
 
 export default class LayeredSlidingPanes extends React.Component {
   static get propTypes() {
