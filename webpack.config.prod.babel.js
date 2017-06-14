@@ -43,7 +43,7 @@ export const module_ = { // eslint-disable-line no-underscore-dangle
           options: {
             data: '@import "index";',
             includePaths: [
-              path.join(__dirname, './src/commons/components/_global-import-styles'),
+              path.join(__dirname, './src/commons/components/_global-import-scss'),
             ],
           },
         },
