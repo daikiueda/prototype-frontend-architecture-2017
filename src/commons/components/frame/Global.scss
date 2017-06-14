@@ -1,1 +1,53 @@
-#commons-frame-global {}
+.commons--frame--global {
+  $this: &;
+
+  height: 100%;
+  overflow-y: scroll;
+
+  &#{$this}--has-modal {
+    overflow-y: hidden;
+
+    // TODO: 多分破綻するので経過観察
+    > *:not(:last-child) {
+      filter: blur(2px);
+    }
+  }
+  &#{$this}--has-modal &__modal {
+    display: block;
+  }
+
+  &__modal {
+    display: none;
+  }
+
+  &__modal,
+  &__modal-partition,
+  &__modal-content {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__modal-partition {
+    background: $COLOR_BACKGROUND_MODAL_PARTITION;
+  }
+
+  &__modal-content {
+    text-align: center;
+
+    > * {
+      display: inline-block;
+    }
+
+    &:before {
+      content: "";
+      height: 100%;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+}

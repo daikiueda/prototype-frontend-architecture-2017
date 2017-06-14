@@ -8,6 +8,7 @@ import models, { schemas } from '../domain/models';
 import { actions as entitiesActions } from '../store/modules/entities';
 
 import '../../commons/components/foundational-styles.scss';
+import Global from '../../commons/components/frame/Global';
 import TodoListListTable from '../components/TodoList/ListTable';
 
 class Root extends React.PureComponent {
@@ -18,13 +19,23 @@ class Root extends React.PureComponent {
     };
   }
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      modal: false,
+    };
+  }
+
   render() {
     const { dispatch, entities } = this.props;
     return (
-      <main>
-        <button onClick={() => dispatch(entitiesActions.create(models.TodoList))}>Add</button>
-        <TodoListListTable todoLists={entities.TodoList} />
-      </main>
+      <Global renderModal={() => (this.state.modal ? <div>Show Modal Contents</div> : null)}>
+        <main style={{ padding: 20 }}>
+          <button onClick={() => dispatch(entitiesActions.create(models.TodoList))}>Add</button>
+          <button onClick={() => { this.setState({ modal: true }); }}>Show Modal Contents</button>
+          <TodoListListTable todoLists={entities.TodoList} />
+        </main>
+      </Global>
     );
   }
 }
