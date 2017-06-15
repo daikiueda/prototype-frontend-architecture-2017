@@ -10,10 +10,11 @@ export const outputDirName = 'js';
 export const context = path.resolve(__dirname, PATH_SRC_ROOT);
 
 export function entry() {
-  const resolvePath = (dir) => path.resolve(__dirname, PATH_SRC_ROOT, dir);
+  const resolvePath = (...dir) => path.resolve(__dirname, PATH_SRC_ROOT, ...dir);
   const dirs = fs.readdirSync(resolvePath(''));
   return dirs
     .filter((dir) => dir !== 'commons' && fs.statSync(resolvePath(dir)).isDirectory())
+    .filter((dir) => fs.existsSync(resolvePath(dir, 'index.js')))
     .reduce((hash, dir) => { hash[dir] = `./${dir}/index.js`; return hash; }, {});
 }
 
