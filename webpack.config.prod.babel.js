@@ -1,3 +1,6 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
+import webpack from 'webpack';
+
 const path = require('path');
 const fs = require('fs');
 
@@ -53,11 +56,23 @@ export const module_ = { // eslint-disable-line no-underscore-dangle
   ],
 };
 
+const devtool = 'source-map';
+
 export default function () {
   return {
     context,
     entry,
     output,
     module: module_,
+    devtool,
+    plugins: [
+      new webpack.DefinePlugin({
+        'process.env.NODE_ENV': JSON.stringify('production'),
+      }),
+      new webpack.optimize.UglifyJsPlugin({
+        sourceMap: devtool,
+        mangle: { keep_fnames: true },
+      }),
+    ],
   };
 }

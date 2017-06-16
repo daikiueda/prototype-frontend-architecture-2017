@@ -6,7 +6,7 @@
   "scripts": {
     "watch": "webpack-dev-server --config ./webpack.config.dev.babel.js",
     "storybook": "start-storybook -p 9001 -c .storybook",
-    "build": "webpack --config ./webpack.config.prod.babel.js -p",
+    "build": "webpack --config ./webpack.config.prod.babel.js --progress",
     "build:storybook": "build-storybook -c .storybook -o ./dist/storybook",
     "build-all": "run-p build build:storybook",
     "lint": "run-s lint:*",
