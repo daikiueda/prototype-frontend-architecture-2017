@@ -4,12 +4,10 @@ import { connect } from 'react-redux';
 import { fromJS } from 'immutable';
 import { denormalize } from 'normalizr';
 
-import models, { schemas } from '../domain/models';
-import { actions as entitiesActions } from '../store/modules/entities';
-
+import { schemas } from '../domain/models';
 import '../../commons/components/foundational-styles.scss';
 import Global from '../../commons/components/frame/Global';
-import TodoListListTable from '../components/TodoList/ListTable';
+import TodoListListPane from './TodoListListPane';
 
 class Root extends React.PureComponent {
   static get propTypes() {
@@ -30,11 +28,8 @@ class Root extends React.PureComponent {
     const { dispatch, entities } = this.props;
     return (
       <Global renderModal={() => (this.state.modal ? <div>Show Modal Contents</div> : null)}>
-        <main style={{ padding: 20 }}>
-          <button onClick={() => dispatch(entitiesActions.create(models.TodoList))}>Add</button>
-          <button onClick={() => { this.setState({ modal: true }); }}>Show Modal Contents</button>
-          <TodoListListTable todoLists={entities.TodoList} />
-        </main>
+        <button onClick={() => { this.setState({ modal: true }); }}>Show Modal Contents</button>
+        <TodoListListPane todoLists={entities.TodoList} dispatch={dispatch} />
       </Global>
     );
   }
