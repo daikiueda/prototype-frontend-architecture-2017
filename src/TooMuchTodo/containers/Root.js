@@ -9,7 +9,7 @@ import '../../commons/components/foundational-styles.scss';
 import Global from '../../commons/components/frame/Global';
 import TodoListListPane from './TodoListListPane';
 
-class Root extends React.PureComponent {
+class Root extends React.Component {
   static get propTypes() {
     return {
       entities: PropTypes.object.isRequired,
