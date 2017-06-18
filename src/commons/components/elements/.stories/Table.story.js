@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { Stage } from '../../../../../.storybook/utils';
 
 import Table from '../Table';
 
@@ -8,11 +7,11 @@ storiesOf('commons / elements / Table')
   .addWithInfo(
     'standard',
     () => (
-      <Stage>
+      <div className="stage">
         <Table>
           <tbody><tr><td>aaa</td></tr></tbody>
         </Table>
-      </Stage>
+      </div>
     ),
     { inline: true, source: true, propTables: [Table] },
   );

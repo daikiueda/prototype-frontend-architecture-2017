@@ -3,12 +3,6 @@ import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 import { reduxForm, reducer as form } from 'redux-form';
 
-export class Stage extends React.Component {
-  render() {
-    return <div style={{ padding: '20px 40px' }}>{this.props.children}</div>
-  }
-}
-
 class DummyForm extends React.Component {
   render() {
     return (<form>{this.props.children}</form>);
