@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
 
-import IdsOfSelectedTodoGroup from './IdsOfSelectedTodoList';
+import todoListList from './TodoListList';
 
 const reducers = combineReducers({
-  IdsOfSelectedTodoGroup,
+  todoListList,
 });
 
 export default reducers;
