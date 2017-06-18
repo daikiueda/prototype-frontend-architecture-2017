@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import Stage from '../../../../../.storybook/components/Stage';
+import { Stage } from '../../../../../.storybook/utils';
 
 import Table from '../Table';
 
