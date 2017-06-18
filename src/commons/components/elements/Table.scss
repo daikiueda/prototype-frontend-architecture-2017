@@ -1,4 +1,6 @@
-.commons--elements__table {
+.commons--elements--table {
+  $this: &;
+
   $vertical-padding: (($LINE_HEIGHT_STANDARD * 3 / 2) - $FONT_SIZE_STANDARD) / 2;
 
   border-collapse: separate;
@@ -15,6 +17,10 @@
 
       &:first-child { padding-left: $SPACE_BASE_HORIZONTAL; }
       &:last-child { padding-right: $SPACE_BASE_HORIZONTAL; }
+    }
+
+    > tr#{$this}__tr--checked {
+      background: $COLOR_SECONDARY_LIGHT;
     }
   }
 
