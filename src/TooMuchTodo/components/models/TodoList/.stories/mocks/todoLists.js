@@ -1,17 +1,16 @@
-import { List } from 'immutable';
-import TodoGroup from '../../../domain/models/TodoList';
+import TodoList from '../../../../../domain/models/TodoList';
 
-const todoGroupList = [
-  new TodoGroup({
+const todoLists = [
+  new TodoList({
     id: 'TDG-0001',
     title: 'サンプルTODO - 1',
     description: 'サンプルTODO - 1についての説明！記述！',
   }),
-  new TodoGroup({
+  new TodoList({
     id: 'TDG-0002',
     title: 'サンプルTODO - 2',
     description: 'サンプルTODO - 2についての説明！記述！',
   }),
 ];
 
-export default todoGroupList;
+export default todoLists;

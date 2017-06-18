@@ -5,7 +5,7 @@ import { Field, reduxForm, propTypes as reduxFormPropTypes } from 'redux-form';
 import models from '../domain/models';
 import { actions as entitiesActions } from '../store/modules/entities';
 
-import TodoListListTable from '../components/TodoList/ListTable';
+import TodoListListTable from '../components/models/TodoList/ListTable';
 
 class TodoListListPane extends React.Component {
   static get propTypes() {

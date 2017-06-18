@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Field, FieldArray } from 'redux-form';
 
-import Table from '../../../commons/components/elements/Table';
-import TodoList from '../../domain/models/TodoList';
+import Table from '../../../../commons/components/elements/Table';
+import TodoList from '../../../domain/models/TodoList';
 
 export default class ListTable extends React.Component {
   static get propTypes() {

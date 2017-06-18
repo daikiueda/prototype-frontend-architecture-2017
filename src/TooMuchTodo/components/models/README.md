@@ -1,4 +1,4 @@
-# components
+# components/model
 
 ## study-1
 

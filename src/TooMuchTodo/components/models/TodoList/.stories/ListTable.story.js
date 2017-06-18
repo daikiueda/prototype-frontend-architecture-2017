@@ -1,11 +1,11 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { Stage, ConnectedForm } from '../../../../.storybook/utils';
+import { Stage, ConnectedForm } from '../../../../../../.storybook/utils';
 
-import TodoListListTable from '../TodoList/ListTable';
+import TodoListListTable from '../ListTable';
 import todoLists from './mocks/todoLists';
 
-storiesOf('TooMuchTodo / TodoListListTable', module)
+storiesOf('TooMuchTodo / models / TodoListListTable')
   .addWithInfo(
     'standard',
     () => (

@@ -4,7 +4,7 @@ import { Stage } from '../../../../../.storybook/utils';
 
 import Table from '../Table';
 
-storiesOf('commons / elements / Table', module)
+storiesOf('commons / elements / Table')
   .addWithInfo(
     'standard',
     () => (
