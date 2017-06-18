@@ -6,7 +6,7 @@ import { denormalize } from 'normalizr';
 
 import { schemas } from '../domain/models';
 import '../../commons/components/foundational-styles.scss';
-import Global from '../../commons/components/frame/Global';
+import Global from '../../commons/components/frames/Global';
 import TodoListListPane from './TodoListListPane';
 
 class Root extends React.Component {

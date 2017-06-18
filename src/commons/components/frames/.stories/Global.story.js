@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 
 import Global from '../Global';
 
-storiesOf('commons / frame / Global', module)
+storiesOf('commons / frames / Global', module)
   .addWithInfo(
     'Show Modal Contents',
     () => {

@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Stage, ConnectedForm } from '../../../../../../.storybook/utils';
 
-import TodoListListTable from '../ListTable';
+import TodoListDetail from '../Detail';
 import todoLists from './mocks/todoLists';
 
 storiesOf('TooMuchTodo / models / TodoListDetail')
@@ -11,12 +11,12 @@ storiesOf('TooMuchTodo / models / TodoListDetail')
     () => (
       <ConnectedForm>
         <Stage>
-          <TodoListListTable
-            todoLists={todoLists}
+          <TodoListDetail
+            todoList={todoLists[0]}
           />
         </Stage>
       </ConnectedForm>
     ),
-    { inline: true, source: false, propTables: [TodoListListTable] },
+    { inline: true, source: false, propTables: [TodoListDetail] },
   );
 

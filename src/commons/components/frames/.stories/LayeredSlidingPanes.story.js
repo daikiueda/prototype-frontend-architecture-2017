@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 
 import LayeredSlidingPanes from '../LayeredSlidingPanes';
 
-storiesOf('commons / frame / LayeredSlidingPanes', module)
+storiesOf('commons / frames / LayeredSlidingPanes', module)
   .addWithInfo(
     'standard',
     () => (
