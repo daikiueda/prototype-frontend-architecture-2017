@@ -12,6 +12,7 @@ export default class LabeledFieldRow extends React.Component {
       children: PropTypes.any.isRequired,
       label: PropTypes.any,
       className: PropTypes.string,
+      htmlFor: PropTypes.string,
     };
   }
 
@@ -19,6 +20,7 @@ export default class LabeledFieldRow extends React.Component {
     return {
       label: '',
       className: '',
+      htmlFor: '',
     };
   }
 
@@ -26,7 +28,7 @@ export default class LabeledFieldRow extends React.Component {
     return (
       <div className={classNames(CSS_ROOT, this.props.className)}>
         <div className={`${CSS_ROOT}__label`}>
-          <label>{this.props.label}</label>
+          <label htmlFor={this.props.htmlFor}>{this.props.label}</label>
         </div>
         <div className={`${CSS_ROOT}__field`}>{this.props.children}</div>
       </div>
