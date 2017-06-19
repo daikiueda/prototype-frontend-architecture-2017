@@ -7,6 +7,7 @@ import { denormalize } from 'normalizr';
 import { schemas } from '../domain/models';
 import '../../commons/components/foundational-styles.scss';
 import Global from '../../commons/components/frames/Global';
+import Dialog from '../../commons/components/frames/Dialog';
 import TodoListListPane from './TodoListListPane';
 
 class Root extends React.Component {
@@ -27,7 +28,13 @@ class Root extends React.Component {
   render() {
     const { dispatch, entities } = this.props;
     return (
-      <Global renderModal={() => (this.state.modal ? <div>Show Modal Contents</div> : null)}>
+      <Global
+        renderModal={() => (
+          this.state.modal
+            ? <Dialog><div style={{ height: 400 }}>Show Modal Contents</div></Dialog>
+            : null
+        )}
+      >
         <button onClick={() => { this.setState({ modal: true }); }}>Show Modal Contents</button>
         <TodoListListPane todoLists={entities.TodoList} dispatch={dispatch} />
       </Global>
