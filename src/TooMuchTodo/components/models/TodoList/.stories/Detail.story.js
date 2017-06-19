@@ -9,13 +9,13 @@ storiesOf('TooMuchTodo / models / TodoListDetail')
   .addWithInfo(
     'standard',
     () => (
-      <ConnectedForm>
-        <div className="stage">
+      <div className="stage">
+        <ConnectedForm>
           <TodoListDetail
             todoList={todoLists[0]}
           />
-        </div>
-      </ConnectedForm>
+        </ConnectedForm>
+      </div>
     ),
     { inline: true, source: false, propTables: [TodoListDetail] },
   );
