@@ -25,7 +25,7 @@ const renderError = ({ touched, error, warning }) => {
   return messages;
 };
 
-export const Input = ({ input, meta, label, type }) => {
+const Input = ({ input, meta, label, type }) => {
   const fieldId = `field-${input.name}`;
   return (
     <LabeledFieldRow label={label} htmlFor={fieldId}>
@@ -44,7 +44,7 @@ Input.propTypes = {
   type: PropTypes.string.isRequired,
 };
 
-export const Textarea = ({ input, meta, label }) => {
+const Textarea = ({ input, meta, label }) => {
   const fieldId = `field-${input.name}`;
   return (
     <LabeledFieldRow label={label} htmlFor={fieldId}>
