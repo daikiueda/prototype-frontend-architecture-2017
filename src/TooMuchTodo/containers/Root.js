@@ -7,7 +7,7 @@ import '../../commons/components/foundational-styles.scss';
 import { selectors as entitiesSelectors } from '../store/modules/entities';
 import Global from '../../commons/components/frames/Global';
 import Dialog from '../../commons/components/frames/Dialog';
-import TodoListListPane from './TodoListListPane';
+import PaneForListTodoList from './PaneForListTodoList';
 
 class Root extends React.Component {
   static get propTypes() {
@@ -25,7 +25,6 @@ class Root extends React.Component {
   }
 
   render() {
-    const { dispatch, entities } = this.props;
     return (
       <Global
         renderModal={() => (
@@ -35,7 +34,7 @@ class Root extends React.Component {
         )}
       >
         <button onClick={() => { this.setState({ modal: true }); }}>Show Modal Contents</button>
-        <TodoListListPane todoLists={entities.TodoList} dispatch={dispatch} />
+        <PaneForListTodoList />
       </Global>
     );
   }

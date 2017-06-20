@@ -1,16 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Field, reduxForm, propTypes as reduxFormPropTypes } from 'redux-form';
+import { connect } from 'react-redux';
+import { Field, reduxForm } from 'redux-form';
 
 import models from '../domain/models';
-import { actions as entitiesActions } from '../store/modules/entities';
+import {
+  actions as entitiesActions,
+  selectors as entitiesSelectors,
+} from '../store/modules/entities';
 
 import TodoListListTable from '../components/models/TodoList/ListTable';
 
-class TodoListListPane extends React.Component {
+class PaneForListTodoList extends React.Component {
   static get propTypes() {
     return {
-      ...reduxFormPropTypes,
+      handleSubmit: PropTypes.func.isRequired,
       todoLists: PropTypes.arrayOf(PropTypes.instanceOf(models.TodoList)),
     };
   }
@@ -18,7 +22,6 @@ class TodoListListPane extends React.Component {
   static get defaultProps() {
     return {
       todoLists: [],
-      selectedIds: [],
     };
   }
 
@@ -27,7 +30,7 @@ class TodoListListPane extends React.Component {
     return (
       <main style={{ padding: 20 }}>
         <form onSubmit={handleSubmit((values) => { console.log(values); })}>
-          <button onClick={() => dispatch(entitiesActions.create(models.TodoList))}>Add</button>
+          <button type="button" onClick={() => dispatch(entitiesActions.create(models.TodoList))}>Add</button>
           <TodoListListTable todoLists={todoLists} />
           <Field component="button" type="submit" name="action" value="delete">Delete</Field>
         </form>
@@ -36,7 +39,11 @@ class TodoListListPane extends React.Component {
   }
 }
 
-export default reduxForm({
-  form: 'TodoListListPane',
+export default connect(
+  (state) => ({
+    todoLists: entitiesSelectors.denormalized(state).TodoList,
+  }),
+)(reduxForm({
+  form: 'PaneForListTodoList',
   pure: false,
-})(TodoListListPane);
+})(PaneForListTodoList));
