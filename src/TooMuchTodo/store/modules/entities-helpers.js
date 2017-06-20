@@ -47,7 +47,9 @@ export const normalizeImmutableModelEntities = (payloadEntities) => {
 
 // TODO: テストを書かないと不安
 const pickEntitiesAndSchemas = (allEntities) => {
+  // FIXME 不安が消えたら削除する
   console.warn('denormalize!!');
+
   const entityNames = allEntities.keySeq().toArray();
   return entityNames.reduce((pickedEntitiesAndSchemes, entityName) => {
     // e.g. { users: [ 1, 2 ] }
