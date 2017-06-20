@@ -43,8 +43,10 @@ class Root extends React.Component {
 }
 
 // TODO: commonsに置くべきものにできそう？
-const pickEntitiesAndSchemas = (targetEntityNames, allEntities) =>
-  targetEntityNames.reduce((pickedEntitiesAndSchemes, entityName) => {
+// TODO: テストを書かないと不安
+const pickEntitiesAndSchemas = (allEntities) => {
+  const entityNames = allEntities.keySeq().toArray();
+  return entityNames.reduce((pickedEntitiesAndSchemes, entityName) => {
     // e.g. { users: [ 1, 2 ] }
     pickedEntitiesAndSchemes[0][entityName]
       = Array.from(allEntities.get(entityName) || new Map()).map(([key]) => key);
@@ -53,14 +55,14 @@ const pickEntitiesAndSchemas = (targetEntityNames, allEntities) =>
     pickedEntitiesAndSchemes[1][entityName] = [schemas.get(entityName)];
     return pickedEntitiesAndSchemes;
   }, [{}, {}]);
+};
 
 const mapStateToProps = (state) => {
   const { entities, ...restProps } = state;
   return {
     ...restProps,
     entities: denormalize(
-      // TODO: すべてのデータを渡した方が良い？いずれ検討
-      ...pickEntitiesAndSchemas(['TodoList'], entities),
+      ...pickEntitiesAndSchemas(entities),
       fromJS(entities),
     ),
   };
