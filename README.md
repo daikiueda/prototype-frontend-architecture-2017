@@ -11,9 +11,11 @@ I would like to discover my current better Frontend Architecture.
     - **`normalize`** in `reducer` and **`denormalize`** in `mapStateToProps`.
       `schema.Entity` is near the Model Class.
     - So, there is only one  reducer for all Entities.
+  - [reselect](https://github.com/reactjs/reselect)
+    - To reduce the number of denormalization processing.
   - Ducks pattern
+    - reducer, { actions, selectors } and ACTIONS.
   - [Redux Form](http://redux-form.com/)
-  - [PLANED] reselect?
   - [PLANED] redux-saga?
 - [React](https://facebook.github.io/react/)
   - [CSS Modules](https://github.com/css-modules/css-modules)

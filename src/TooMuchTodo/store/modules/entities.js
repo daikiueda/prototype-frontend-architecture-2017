@@ -1,6 +1,10 @@
 import { createAction } from 'redux-actions';
 import { Map } from 'immutable';
-import normalizeImmutableModelEntities from './entities-helpers';
+import { createSelector } from 'reselect';
+import {
+  normalizeImmutableModelEntities,
+  denormalizeImmutableModelEntities,
+} from './entities-helpers';
 
 const INITIAL_STATE = Map();
 
@@ -13,6 +17,13 @@ export const actions = {
   create: createAction(ACTIONS.CREATE),
   add: createAction(ACTIONS.ADD),
 };
+
+export const selectors = {};
+selectors.raw = (state) => (state.entities);
+selectors.denormalized = createSelector(
+  selectors.raw,
+  (raw) => raw && denormalizeImmutableModelEntities(raw),
+);
 
 const processes = {
   [ACTIONS.CREATE]: (state, payload) => {

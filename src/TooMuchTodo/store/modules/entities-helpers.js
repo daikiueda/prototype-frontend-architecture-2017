@@ -1,8 +1,8 @@
-import { normalize } from 'normalizr';
-import Immutable from 'immutable';
+import { normalize, denormalize } from 'normalizr';
+import Immutable, { fromJS } from 'immutable';
 import models, { schemas } from '../../domain/models';
 
-export default function normalizeImmutableModelEntities(payloadEntities) {
+export const normalizeImmutableModelEntities = (payloadEntities) => {
   // payloadで渡されたモデルのインスタンスを配列で扱う
   const entities = Array.isArray(payloadEntities)
     ? payloadEntities : [payloadEntities];
@@ -43,4 +43,24 @@ export default function normalizeImmutableModelEntities(payloadEntities) {
         ),
       );
     }, Immutable.Map());
-}
+};
+
+// TODO: テストを書かないと不安
+const pickEntitiesAndSchemas = (allEntities) => {
+  console.warn('denormalize!!');
+  const entityNames = allEntities.keySeq().toArray();
+  return entityNames.reduce((pickedEntitiesAndSchemes, entityName) => {
+    // e.g. { users: [ 1, 2 ] }
+    pickedEntitiesAndSchemes[0][entityName]
+      = Array.from(allEntities.get(entityName) || new Map()).map(([key]) => key);
+
+    // e.g. { users: [new schema.Entity('users')] }
+    pickedEntitiesAndSchemes[1][entityName] = [schemas.get(entityName)];
+    return pickedEntitiesAndSchemes;
+  }, [{}, {}]);
+};
+
+export const denormalizeImmutableModelEntities = (entities) => denormalize(
+  ...pickEntitiesAndSchemas(entities),
+  fromJS(entities),
+);
