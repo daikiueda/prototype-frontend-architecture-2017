@@ -23,14 +23,16 @@ export default class Detail extends React.Component {
 
   render() {
     const { todoList, isReadOnly } = this.props;
+
+    // TODO: 無様な二重化をなんとかしたい
     const content = isReadOnly
       ? [
-        <LabeledFieldRow label="Title">{todoList.title}</LabeledFieldRow>,
-        <LabeledFieldRow label="Description">{todoList.description}</LabeledFieldRow>,
+        <LabeledFieldRow key="title" label="Title">{todoList.title}</LabeledFieldRow>,
+        <LabeledFieldRow key="description" label="Description">{todoList.description}</LabeledFieldRow>,
       ]
       : [
-        <Field name="title" label="Title" component={renderFieldRow.Input} type="text" />,
-        <Field name="description" label="Description" component={renderFieldRow.Textarea} />,
+        <Field key="title" name="title" label="Title" component={renderFieldRow.Input} type="text" />,
+        <Field key="description" name="description" label="Description" component={renderFieldRow.Textarea} />,
       ];
 
     return (
