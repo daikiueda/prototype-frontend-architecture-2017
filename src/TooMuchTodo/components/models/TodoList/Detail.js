@@ -26,7 +26,7 @@ export default class Detail extends React.Component {
     const content = isReadOnly
       ? [
         <LabeledFieldRow label="Title">{todoList.title}</LabeledFieldRow>,
-        <LabeledFieldRow label="Description">{todoList.description}</LabeledFieldRow>
+        <LabeledFieldRow label="Description">{todoList.description}</LabeledFieldRow>,
       ]
       : [
         <Field name="title" label="Title" component={renderFieldRow.Input} type="text" />,
