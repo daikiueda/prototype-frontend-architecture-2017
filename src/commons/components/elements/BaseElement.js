@@ -8,13 +8,14 @@ export default class BaseElement extends React.Component {
       children: PropTypes.oneOfType([
         PropTypes.element,
         PropTypes.arrayOf(PropTypes.element),
-      ]).isRequired,
+      ]),
       className: PropTypes.string,
     };
   }
 
   static get defaultProps() {
     return {
+      children: null,
       className: '',
     };
   }
