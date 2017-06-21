@@ -29,7 +29,7 @@ export default class Detail extends React.Component {
         <LabeledFieldRow label="Description">{todoList.description}</LabeledFieldRow>
       ]
       : [
-        <Field name="title" label="Title" component={renderFieldRow.Input} />,
+        <Field name="title" label="Title" component={renderFieldRow.Input} type="text" />,
         <Field name="description" label="Description" component={renderFieldRow.Textarea} />,
       ];
 
