@@ -1,5 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import { LIPSUM } from '../../../../../.storybook/utils';
 
 import Global from '../Global';
 import Dialog from '../Dialog';
@@ -10,19 +11,24 @@ storiesOf('commons / frames / Dialog', module)
     () => {
       const renderModal = () => (
         <Dialog>
-          <div style={{ height: 400, padding: 20 }}>Modal Dialog</div>
+          <div>
+            <p><strong>Modal Dialog</strong></p>
+            <p>{LIPSUM}</p>
+            <p>{LIPSUM}</p>
+            <p>{LIPSUM}</p>
+            <p>{LIPSUM}</p>
+            <p>{LIPSUM}</p>
+          </div>
         </Dialog>
       );
 
       return (
         <div style={{height: '400px'}}>
           <Global renderModal={renderModal}>
-            <div>aaaaa</div>
-            <div>bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb bbbbb
-              bbbbb bbbbb bbbbb bbbbb bbbbb
-            </div>
-            <div>ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc ccccc
-              ccccc ccccc ccccc ccccc
+            <div style={{ padding: '80px 20px' }}>
+              <div style={{ fontSize: '2em' }}>Opener Content</div>
+              <p>{LIPSUM}</p>
+              <p>{LIPSUM}</p>
             </div>
           </Global>
         </div>

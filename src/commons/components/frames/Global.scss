@@ -38,6 +38,7 @@
 
   &__modal-content {
     text-align: center;
+    overflow-y: scroll;
 
     > * {
       display: inline-block;

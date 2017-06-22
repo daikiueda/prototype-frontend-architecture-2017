@@ -1,8 +1,34 @@
 .commons--frame--dialog {
-  width: 85vw;
+  width: 75%;
+  //height: 400px;
   margin: $SPACE_BASE_VERTICAL 0;
   background: $COLOR_BACKGROUND_BASE;
   box-shadow: $BOX_SHADOW_STANDARD;
   vertical-align: middle;
   text-align: left;
+
+  > section {
+    box-sizing: border-box;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    > *:not(header):not(footer) {
+      flex: 1;
+      overflow-y: scroll;
+      padding: $SPACE_BASE_VERTICAL $SPACE_BASE_HORIZONTAL * 2 0;
+    }
+
+    > header,
+    > footer {
+      background: #9be7ff;
+      padding: 0 $SPACE_BASE_HORIZONTAL * 2;
+    }
+
+    > header h1 {
+      font-size: $FONT_SIZE_EXTRA_LARGE;
+      line-height: $LINE_HEIGHT_FOR_EXTRA_LARGE;
+    }
+  }
 }

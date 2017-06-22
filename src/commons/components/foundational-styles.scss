@@ -16,10 +16,17 @@ body {
   font-size: $FONT_SIZE_STANDARD;
 }
 
-
 body,
 input,
 button {
   font-family: $FONT_FAMILY;
   color: $COLOR-FONT-PRIMARY;
+}
+
+p {
+  margin: $SPACE_BASE_VERTICAL 0;
+
+  &:first-child {
+    margin-top: 0;
+  }
 }

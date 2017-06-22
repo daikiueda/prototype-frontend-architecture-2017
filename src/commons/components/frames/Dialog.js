@@ -23,10 +23,30 @@ export default class Dialog extends React.Component {
     };
   }
 
+  renderHeader() {
+    return (
+      <header>
+        <h1>Header Text</h1>
+      </header>
+    );
+  }
+
+  renderFooter() {
+    return (
+      <footer>
+        Footer
+      </footer>
+    );
+  }
+
   render() {
     return (
       <div className={classNames(CSS_ROOT, this.props.className)}>
-        {this.props.children}
+        <section>
+          {this.renderHeader()}
+          {this.props.children}
+          {this.renderFooter()}
+        </section>
       </div>
     );
   }
