@@ -5,9 +5,9 @@ import { LIPSUM } from '../../../../../.storybook/utils';
 import Global from '../Global';
 import Dialog from '../Dialog';
 
-storiesOf('commons / frames / Dialog', module)
+storiesOf('commons/frames', module)
   .addWithInfo(
-    'Show Modal Dialog',
+    'Dialog',
     () => {
       const renderModal = () => (
         <Dialog>

@@ -3,9 +3,9 @@ import { storiesOf } from '@storybook/react';
 
 import Global from '../Global';
 
-storiesOf('commons / frames / Global', module)
+storiesOf('commons/frames', module)
   .addWithInfo(
-    'Show Modal Contents',
+    'Global',
     () => {
       const renderModal = () => (
         <div>Modal Contents</div>

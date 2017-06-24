@@ -5,9 +5,9 @@ import { ConnectedForm } from '../../../../../../.storybook/utils';
 import TodoListListTable from '../ListTable';
 import todoLists from './mocks/todoLists';
 
-storiesOf('TooMuchTodo / models / TodoListListTable')
+storiesOf('TooMuchTodo/models', module)
   .addWithInfo(
-    'standard',
+    'TodoListListTable',
     () => (
       <ConnectedForm>
         <div className="stage">

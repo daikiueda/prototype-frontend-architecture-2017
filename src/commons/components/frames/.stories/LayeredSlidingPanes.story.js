@@ -3,9 +3,9 @@ import { storiesOf } from '@storybook/react';
 
 import LayeredSlidingPanes from '../LayeredSlidingPanes';
 
-storiesOf('commons / frames / LayeredSlidingPanes', module)
+storiesOf('commons/frames', module)
   .addWithInfo(
-    'standard',
+    'LayeredSlidingPanes (3 Panes)',
     () => (
       <div style={{ height: '400px' }}>
         <LayeredSlidingPanes>
@@ -18,7 +18,7 @@ storiesOf('commons / frames / LayeredSlidingPanes', module)
     { inline: true, source: true, propTables: [LayeredSlidingPanes] },
   )
   .addWithInfo(
-    'standarda',
+    'LayeredSlidingPanes (2 Panes)',
     () => (
       <div style={{ height: '400px' }}>
         <LayeredSlidingPanes>
@@ -30,7 +30,7 @@ storiesOf('commons / frames / LayeredSlidingPanes', module)
     { inline: true, source: true, propTables: null },
   )
   .addWithInfo(
-    'standardaaa',
+    'LayeredSlidingPanes (1 pane)',
     () => (
       <div style={{ height: '400px' }}>
         <LayeredSlidingPanes>

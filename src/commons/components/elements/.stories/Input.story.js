@@ -3,9 +3,9 @@ import { storiesOf } from '@storybook/react';
 
 import Input from '../Input';
 
-storiesOf('commons / elements / Input')
+storiesOf('commons/elements', module)
   .addWithInfo(
-    'standard',
+    'Input',
     () => (
       <div className="stage">
         <p><Input type="text"/></p>

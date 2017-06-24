@@ -5,9 +5,9 @@ import { ConnectedForm } from '../../../../../.storybook/utils';
 
 import renderFieldRow from '../renderFieldRow';
 
-storiesOf('commons / form / renderFieldRow')
+storiesOf('commons/form', module)
   .addWithInfo(
-    'Input',
+    'renderFieldRow.Input',
     () => (
       <div className="stage">
         <ConnectedForm>
@@ -23,7 +23,7 @@ storiesOf('commons / form / renderFieldRow')
     { inline: true, source: true, propTables: null },
   )
   .addWithInfo(
-    'Textarea',
+    'renderFieldRow.Textarea',
     () => (
       <div className="stage">
         <ConnectedForm>

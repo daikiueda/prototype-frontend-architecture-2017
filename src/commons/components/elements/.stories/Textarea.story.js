@@ -3,9 +3,9 @@ import { storiesOf } from '@storybook/react';
 
 import Textarea from '../Textarea';
 
-storiesOf('commons / elements / Textarea')
+storiesOf('commons/elements', module)
   .addWithInfo(
-    'standard',
+    'Textarea',
     () => (
       <div className="stage">
         <p><Textarea /></p>

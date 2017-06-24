@@ -5,9 +5,9 @@ import { ConnectedForm } from '../../../../../../.storybook/utils';
 import TodoListDetail from '../Detail';
 import todoLists from './mocks/todoLists';
 
-storiesOf('TooMuchTodo / models / TodoListDetail')
+storiesOf('TooMuchTodo/models', module)
   .addWithInfo(
-    'Input Form',
+    'TodoListDetail (Input Form)',
     () => (
       <div className="stage">
         <ConnectedForm>
@@ -21,7 +21,7 @@ storiesOf('TooMuchTodo / models / TodoListDetail')
     { inline: true, source: false, propTables: [TodoListDetail] },
   )
   .addWithInfo(
-    'Read Only',
+    'TodoListDetail (Read Only)',
     () => (
       <div className="stage">
         <ConnectedForm>

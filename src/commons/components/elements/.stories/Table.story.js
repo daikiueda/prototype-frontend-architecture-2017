@@ -3,9 +3,9 @@ import { storiesOf } from '@storybook/react';
 
 import Table from '../Table';
 
-storiesOf('commons / elements / Table')
+storiesOf('commons/elements', module)
   .addWithInfo(
-    'standard',
+    'Table',
     () => (
       <div className="stage">
         <Table>

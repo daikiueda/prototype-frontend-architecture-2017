@@ -3,9 +3,9 @@ import { storiesOf } from '@storybook/react';
 
 import LabeledFieldRow from '../LabeledFieldRow';
 
-storiesOf('commons / form / LabeledFieldRow')
+storiesOf('commons/form', module)
   .addWithInfo(
-    'standard',
+    'LabeledFieldRow',
     () => (
       <div className="stage">
         <LabeledFieldRow label="Label Text">
