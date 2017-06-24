@@ -1,6 +1,8 @@
 .commons--frame--dialog {
+  $this: &;
+  $button-with-class-name: 'button.commons--elements--button';
+
   width: 75%;
-  //height: 400px;
   margin: $SPACE_BASE_VERTICAL 0;
   background: $COLOR_BACKGROUND_BASE;
   box-shadow: $BOX_SHADOW_STANDARD;
@@ -11,24 +13,67 @@
     box-sizing: border-box;
     height: 100%;
 
+    position: relative;
+
     display: flex;
     flex-direction: column;
 
-    > *:not(header):not(footer) {
-      flex: 1;
-      overflow-y: scroll;
-      padding: $SPACE_BASE_VERTICAL $SPACE_BASE_HORIZONTAL * 2 0;
-    }
-
     > header,
     > footer {
-      background: #9be7ff;
+      flex: 0;
       padding: 0 $SPACE_BASE_HORIZONTAL * 2;
+      background: #9be7ff; // FIXME: 色は仮置き。無くても良い
+
+      display: flex;
+      align-items: center;
     }
 
-    > header h1 {
-      font-size: $FONT_SIZE_EXTRA_LARGE;
-      line-height: $LINE_HEIGHT_FOR_EXTRA_LARGE;
+    > header {
+      justify-content: space-between;
+
+      &#{$this}__header--aside-only {
+        background: none;
+        display: block;
+        position: absolute;
+        right: 0;
+      }
+    }
+
+    > footer {
+      justify-content: flex-end;
+
+      &#{$this}__footer--has-aside {
+        justify-content: space-between;
+      }
+    }
+  }
+
+  &__header-aside,
+  &__footer-main {
+    #{$button-with-class-name}:last-child {
+      margin-right: -1 * $SPACE_BASE_HORIZONTAL;
+    }
+  }
+
+  &__footer-aside {
+    #{$button-with-class-name}:first-child {
+      margin-left: -1 * $SPACE_BASE_HORIZONTAL;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    font-size: $FONT_SIZE_EXTRA_LARGE;
+    line-height: $LINE_HEIGHT_FOR_EXTRA_LARGE;
+  }
+
+  &__body {
+    flex: 1;
+    overflow-y: scroll;
+    padding: $SPACE_BASE_VERTICAL $SPACE_BASE_HORIZONTAL * 2 0;
+
+    &:last-child {
+      padding-bottom: $SPACE_BASE_VERTICAL;
     }
   }
 }
