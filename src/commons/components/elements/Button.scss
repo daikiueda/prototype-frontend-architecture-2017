@@ -1,0 +1,33 @@
+.commons--elements--button {
+  $this: &;
+
+  background: $COLOR_BACKGROUND_PLAIN;
+  border: none;
+  border-radius: $BORDER_RADIUS_STANDARD;
+  box-shadow: $BOX_SHADOW_STANDARD;
+
+  line-height: 1;
+  font-size: $FONT_SIZE_STANDARD;
+  font-weight: bold;
+
+  padding:
+    $FONT_SIZE_STANDARD / 2
+    $SPACE_BASE_HORIZONTAL;
+  margin:
+    (($SPACE_BASE_VERTICAL * 2) -($FONT_SIZE_STANDARD * 2)) / 2
+    $SPACE_BASE_HORIZONTAL;
+
+  &:first-child { margin-left: 0 }
+  &:last-child { margin-right: 0 }
+
+  &#{$this}-inline {
+    border: solid $BORDER_WEIGHT_STANDARD $COLOR_BORDER-PRIMARY;
+    box-shadow: none;
+    line-height: 1;
+    font-size: $FONT_SIZE_STANDARD;
+    padding:
+      ($SPACE_BASE_VERTICAL_GAP - $BORDER_WEIGHT_STANDARD - 0.1rem)
+      (($SPACE_BASE_HORIZONTAL / 2) - $BORDER_WEIGHT_STANDARD);
+    margin: 0.1rem 0;
+  }
+}

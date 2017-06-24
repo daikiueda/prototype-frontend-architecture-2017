@@ -25,8 +25,10 @@ button {
 
 p {
   margin: $SPACE_BASE_VERTICAL 0;
+  &:first-child { margin-top: 0; }
+}
 
-  &:first-child {
-    margin-top: 0;
-  }
+input,
+button {
+  cursor: pointer;
 }
