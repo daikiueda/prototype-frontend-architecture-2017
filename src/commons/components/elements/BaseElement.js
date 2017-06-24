@@ -6,7 +6,11 @@ export default class BaseElement extends React.Component {
   static get propTypes() {
     return {
       children: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number,
         PropTypes.element,
+        PropTypes.arrayOf(PropTypes.string),
+        PropTypes.arrayOf(PropTypes.number),
         PropTypes.arrayOf(PropTypes.element),
       ]),
       className: PropTypes.string,
@@ -22,6 +26,10 @@ export default class BaseElement extends React.Component {
 
   render() {
     const { children, className, ...restProps } = this.props;
+
+    delete restProps.input;
+    delete restProps.meta;
+
     return React.createElement(
       this.constructor.elementType,
       Object.assign(

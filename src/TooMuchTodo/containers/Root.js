@@ -20,14 +20,14 @@ class Root extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      modal: false,
+      modal: null,
     };
   }
 
   render() {
     return (
       <Global
-        renderModal={() => (this.state.modal && <DialogForCreateTodoList />)}
+        modal={this.state.modal && <DialogForCreateTodoList />}
       >
         <button onClick={() => { this.setState({ modal: true }); }}>Show Modal Contents</button>
         <PaneForListTodoList />
