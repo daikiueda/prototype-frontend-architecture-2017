@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { CSSTransitionGroup } from 'react-transition-group';
 import classNames from 'classnames';
 
 import './Global.scss';
@@ -15,50 +14,32 @@ export default class Global extends React.Component {
         PropTypes.arrayOf(PropTypes.element),
       ]).isRequired,
       className: PropTypes.string,
-      renderModal: PropTypes.func,
+      modal: PropTypes.oneOfType([
+        PropTypes.element,
+        PropTypes.arrayOf(PropTypes.element),
+      ]),
     };
   }
 
   static get defaultProps() {
     return {
       className: '',
-      renderModal: () => null,
+      modal: null,
     };
   }
 
-  renderModal(content) {
-    // TODO: CSSTransitionGroup不要？
-    return content
-      ? (
-        <CSSTransitionGroup
-          component="div"
-          className={`${CSS_ROOT}__modal`}
-          transitionName="transition"
-          transitionEnterTimeout={16}
-          transitionLeaveTimeout={16}
-        >
-          <div className={`${CSS_ROOT}__modal-partition`} />
-          <div className={`${CSS_ROOT}__modal-content`}>
-            {content}
-          </div>
-        </CSSTransitionGroup>
-      )
-      : null;
-  }
-
   render() {
-    const modalContent = this.props.renderModal();
-
+    const { children, modal } = this.props;
     const className = classNames(
       CSS_ROOT,
       this.props.className,
-      modalContent ? `${CSS_ROOT}--has-modal` : '',
+      { [`${CSS_ROOT}--has-modal`]: modal },
     );
 
     return (
       <div className={className}>
-        {this.props.children}
-        {this.renderModal(modalContent)}
+        {children}
+        {modal}
       </div>
     );
   }
