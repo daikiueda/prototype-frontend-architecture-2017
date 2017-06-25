@@ -28,7 +28,10 @@ p {
   &:first-child { margin-top: 0; }
 }
 
-input,
+input[type=checkbox],
+input[type=radio],
+input[type=submit],
+input[type=image],
 button {
   cursor: pointer;
 }
