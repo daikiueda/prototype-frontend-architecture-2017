@@ -1,11 +1,16 @@
 .commons--elements--table {
   $this: &;
 
-  $vertical-padding: (($LINE_HEIGHT_STANDARD * 3 / 2) - $FONT_SIZE_STANDARD) / 2;
+  // FIXME: 少数点以下のせいか、表示が微妙に意図と異なる…
+  // $vertical-padding: (($SPACE_BASE_VERTICAL * 3 / 2) - $SPACE_BASE_VERTICAL) / 2;
+  $vertical-padding: $SPACE_BASE_VERTICAL / 2;
 
   border-collapse: separate;
   border-spacing: 0;
   box-shadow: $BOX_SHADOW_STANDARD;
+
+  // TODO: 経過観察
+  margin: $vertical-padding 0;
 
   > thead,
   > tbody,
