@@ -65,6 +65,10 @@ export default class ListTable extends React.Component {
   }
 
   render() {
+    if (!this.props.todoLists || !this.props.todoLists.length) {
+      return null;
+    }
+
     return (
       <Table>
         <FieldArray name="checked" component={this.renderTodoListTableBody} />
