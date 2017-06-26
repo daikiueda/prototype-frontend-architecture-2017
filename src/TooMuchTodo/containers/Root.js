@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import '../../commons/components/foundational-styles.scss';
 
+import models from '../domain/models';
 import { selectors as entitiesSelectors } from '../store/modules/entities';
 import Global from '../../commons/components/frames/Global';
 import PaneForListTodoList from './PaneForListTodoList';
@@ -13,23 +14,34 @@ class Root extends React.Component {
   static get propTypes() {
     return {
       entities: PropTypes.object.isRequired,
+      client: PropTypes.object,
       // ui: PropTypes.object.isRequired,
     };
   }
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      modal: null,
+  static get defaultProps() {
+    return {
+      client: {},
     };
+  }
+
+  conductDialogs() {
+    const dialogs = [];
+
+    switch (this.props.client.plan) {
+      case models.TodoList:
+        dialogs.push(<DialogForCreateTodoList />);
+        break;
+
+      default:
+    }
+
+    return dialogs.length ? dialogs : null;
   }
 
   render() {
     return (
-      <Global
-        modal={this.state.modal && <DialogForCreateTodoList />}
-      >
-        <button onClick={() => { this.setState({ modal: true }); }}>Show Modal Contents</button>
+      <Global modal={this.conductDialogs()} >
         <PaneForListTodoList />
       </Global>
     );
