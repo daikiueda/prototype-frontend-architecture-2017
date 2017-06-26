@@ -10,6 +10,7 @@ export default class DialogForCreateTodoList extends React.Component {
   static get propTypes() {
     return {
       onSubmit: PropTypes.func.isRequired,
+      onClickCloseButton: PropTypes.func.isRequired,
     };
   }
 
@@ -20,7 +21,9 @@ export default class DialogForCreateTodoList extends React.Component {
         <Modal>
           <Dialog
             footer={<Button>Add</Button>}
-            footerAside={<Button type="button">Close</Button>}
+            footerAside={
+              <Button type="button" onClick={this.props.onClickCloseButton}>Close</Button>
+            }
           >
             <TodoListDetail />
           </Dialog>

@@ -11,6 +11,7 @@ export default class PaneForListTodoList extends React.Component {
     return {
       handleSubmit: PropTypes.func.isRequired,
       todoLists: PropTypes.arrayOf(PropTypes.instanceOf(models.TodoList)).isRequired,
+      onClickCreateTodoList: PropTypes.func.isRequired,
       onClickAddTodoList: PropTypes.func.isRequired,
     };
   }
@@ -20,9 +21,18 @@ export default class PaneForListTodoList extends React.Component {
     return (
       <main style={{ padding: 20 }}>
         <form onSubmit={handleSubmit((values) => { console.log(values); })}>
-          <div><Button type="button" onClick={this.props.onClickAddTodoList}>Add</Button></div>
+          <div>
+            <Button type="button" onClick={this.props.onClickCreateTodoList}>Create</Button>
+          </div>
+          <div>
+            <Button type="button" onClick={this.props.onClickAddTodoList}>Add</Button>
+          </div>
+
           <TodoListListTable todoLists={todoLists} />
-          <div><Field component={Button} type="submit" name="action" value="delete">Delete</Field></div>
+
+          <div>
+            <Field component={Button} type="submit" name="action" value="delete">Delete</Field>
+          </div>
         </form>
       </main>
     );
