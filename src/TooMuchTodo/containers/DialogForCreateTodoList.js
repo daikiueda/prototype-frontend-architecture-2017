@@ -8,6 +8,15 @@ const buildHandlerOnSubmit = (dispatch, props) => props.handleSubmit((values) =>
   dispatch({ type: 'SUBMITTED', payload: values });
 });
 
+const ConnectedComponent = connect(
+  (state, props) => ({
+    handleSubmit: props.handleSubmit,
+  }),
+  (dispatch, props) => ({
+    onSubmit: buildHandlerOnSubmit(dispatch, props),
+  }),
+)(DialogForCreateTodoList);
+
 export default connect(
   (state) => ({
     initialValues: state.null,
@@ -16,11 +25,4 @@ export default connect(
 )(reduxForm({
   form: 'DialogForCreateTodoList',
   pure: false,
-})(connect(
-  (state, props) => ({
-    handleSubmit: props.handleSubmit,
-  }),
-  (dispatch, props) => ({
-    onSubmit: buildHandlerOnSubmit(dispatch, props),
-  }),
-)(DialogForCreateTodoList)));
+})(ConnectedComponent));
