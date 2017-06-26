@@ -4,6 +4,7 @@ import { LIPSUM, LIPSUM_JA } from '../../../../../.storybook/utils';
 
 import Button from '../../elements/Button';
 import Global from '../Global';
+import Modal from '../Modal';
 import Dialog from '../Dialog';
 
 const dummyBody = [
@@ -59,6 +60,7 @@ storiesOf('commons/frames', module)
         >{dummyBody}</Dialog>
       </div>
     ),
+    { inline: true, source: true, propTables: [Dialog] },
   )
   .addWithInfo(
     'Dialog with footer and footerAside',
@@ -92,14 +94,14 @@ storiesOf('commons/frames', module)
   .addWithInfo(
     'Dialog (as modal)',
     () => {
-      const renderModal = () => (
-        <Dialog>{dummyBody}</Dialog>
-      );
-
       return (
         <div style={{height: '400px'}}>
-          <Global renderModal={renderModal}>
-            <div style={{ padding: '80px 20px' }}>
+          <Global modal={
+            <Modal>
+              <Dialog>{dummyBody}</Dialog>
+            </Modal>
+          }>
+            <div className="stage">
               <div style={{ fontSize: '2em' }}>Opener Content</div>
               <p>{LIPSUM}</p>
               <p>{LIPSUM}</p>
