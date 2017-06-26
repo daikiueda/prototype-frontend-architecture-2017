@@ -9,14 +9,14 @@ import TodoListDetail from './models/TodoList/Detail';
 export default class DialogForCreateTodoList extends React.Component {
   static get propTypes() {
     return {
-      handleSubmit: PropTypes.func.isRequired,
+      onSubmit: PropTypes.func.isRequired,
     };
   }
 
   render() {
-    const { handleSubmit } = this.props;
+    const { onSubmit } = this.props;
     return (
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={onSubmit}>
         <Modal>
           <Dialog
             footer={<Button>Add</Button>}
