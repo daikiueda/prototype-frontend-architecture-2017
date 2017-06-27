@@ -20,7 +20,9 @@ export default class TodoList extends Record({
     });
   }
 
-  isValid() {
-    return false;
+  save() {
+    return new Promise((resolve) => {
+      setTimeout(resolve, 2000);
+    });
   }
 }
