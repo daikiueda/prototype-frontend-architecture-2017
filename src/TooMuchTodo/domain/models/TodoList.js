@@ -15,6 +15,7 @@ export default class TodoList extends Record({
   constructor(props) {
     const { todos, ...restProps } = props;
     super({
+      id: Date.now(),
       todos: List(todos),
       ...restProps,
     });
