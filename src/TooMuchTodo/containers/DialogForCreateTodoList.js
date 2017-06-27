@@ -1,22 +1,21 @@
 import { connect } from 'react-redux';
 import { reduxForm } from 'redux-form';
 
-import { actions as planActions } from '../store/modules/client/plan';
+import TodoListApp from '../event-handlers/TodoListApp';
 import DialogForCreateTodoList from '../components/DialogForCreateTodoList';
-
-const buildHandlerOnSubmit = (dispatch, props) => props.handleSubmit((values) => {
-  console.log('Submitted!', values);
-  dispatch({ type: 'SUBMITTED', payload: values });
-});
 
 const ConnectedComponent = connect(
   (state, props) => ({
     handleSubmit: props.handleSubmit,
   }),
-  (dispatch, props) => ({
-    onSubmit: buildHandlerOnSubmit(dispatch, props),
-    onClickCloseButton: () => dispatch(planActions.abort()),
-  }),
+  (dispatch, props) => {
+    const todoListApp = new TodoListApp(dispatch, props);
+
+    return {
+      onSubmit: props.handleSubmit((values) => todoListApp.createTodoList(values)),
+      onClickCloseButton: () => todoListApp.abortCreation(),
+    };
+  },
 )(DialogForCreateTodoList);
 
 export default connect(
