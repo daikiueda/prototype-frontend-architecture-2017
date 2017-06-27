@@ -1,12 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import classNames from 'classnames';
+
+import Modal from './Modal';
 
 import './Global.scss';
 
 const CSS_ROOT = 'commons--frame--global';
 
-export default class Global extends React.Component {
+class Global extends React.Component {
   static get propTypes() {
     return {
       children: PropTypes.oneOfType([
@@ -14,6 +17,9 @@ export default class Global extends React.Component {
         PropTypes.arrayOf(PropTypes.element),
       ]).isRequired,
       className: PropTypes.string,
+      ui: PropTypes.shape({
+        waiting: PropTypes.number.isRequired,
+      }).isRequired,
       modal: PropTypes.oneOfType([
         PropTypes.element,
         PropTypes.arrayOf(PropTypes.element),
@@ -28,6 +34,16 @@ export default class Global extends React.Component {
     };
   }
 
+  renderWaiting() {
+    if (this.props.ui.waiting === 0) {
+      return null;
+    }
+
+    return (
+      <Modal><div style={{ fontSize: '2em', color: '#fff' }}>Loading...</div></Modal>
+    );
+  }
+
   render() {
     const { children, modal } = this.props;
     const className = classNames(
@@ -40,7 +56,12 @@ export default class Global extends React.Component {
       <div className={className}>
         {children}
         {modal}
+        {this.renderWaiting()}
       </div>
     );
   }
 }
+
+const mapStateToProps = (state) => ({ ...state.commons });
+
+export default connect(mapStateToProps)(Global);
