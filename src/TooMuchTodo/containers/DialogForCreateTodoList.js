@@ -8,14 +8,10 @@ const ConnectedComponent = connect(
   (state, props) => ({
     handleSubmit: props.handleSubmit,
   }),
-  (dispatch, props) => {
-    const todoListApp = new TodoListApp(dispatch, props);
-
-    return {
-      onSubmit: props.handleSubmit((values) => todoListApp.createTodoList(values)),
-      onClickCloseButton: () => todoListApp.abortCreation(),
-    };
-  },
+  (dispatch, props) => ({
+    onSubmit: props.handleSubmit((values) => TodoListApp.createTodoList(dispatch, values)),
+    onClickCloseButton: () => TodoListApp.abortCreation(dispatch),
+  }),
 )(DialogForCreateTodoList);
 
 export default connect(

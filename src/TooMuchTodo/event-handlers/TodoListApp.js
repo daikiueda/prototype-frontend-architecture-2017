@@ -5,25 +5,20 @@ import { actions as entitiesActions } from '../store/modules/entities';
 import { actions as planActions } from '../store/modules/client/plan';
 
 export default class TodoListApp {
-  constructor(dispatch, props) {
-    this.dispatch = dispatch;
-    this.props = props;
-  }
-
-  createTodoList(todoListSrc) {
+  static createTodoList(dispatch, todoListSrc) {
     const todoList = new models.TodoList(todoListSrc);
 
-    this.dispatch(waitingActions.start());
+    dispatch(waitingActions.start());
 
     todoList.save()
       .then(() => {
-        this.dispatch(entitiesActions.add(todoList));
-        this.dispatch(waitingActions.end());
-        this.abortCreation();
+        dispatch(entitiesActions.add(todoList));
+        dispatch(waitingActions.end());
+        this.abortCreation(dispatch);
       });
   }
 
-  abortCreation() {
-    this.dispatch(planActions.abort());
+  static abortCreation(dispatch) {
+    dispatch(planActions.abort());
   }
 }
