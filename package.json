@@ -14,6 +14,7 @@
     "test": "run-s test:logics",
     "test:logics": "cross-env NODE_PATH=src/ ava",
     "test-cov:logics": "nyc npm run test:logics",
+    "depcruise": "depcruise --exclude \"(^node_modules|.stories|.scss$|.css$)\" --output-type dot ./src | dot -T svg > dependency-graph.svg",
     "gh-pages": "gh-pages -d ./dist",
     "deploy": "run-s build-all gh-pages"
   },
@@ -51,6 +52,7 @@
     "babel-register": "^6.24.1",
     "cross-env": "^5.0.0",
     "css-loader": "^0.28.4",
+    "dependency-cruiser": "^2.2.3",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^15.0.1",
     "eslint-import-resolver-node": "^0.3.0",

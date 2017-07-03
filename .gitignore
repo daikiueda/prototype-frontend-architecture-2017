@@ -1,9 +1,10 @@
 .idea
+node_modules
 
 .nyc_output
 .storybook/.story-files.js
 coverage
-node_modules
+dependency-graph.svg
 
 dist/js
 dist/storybook
