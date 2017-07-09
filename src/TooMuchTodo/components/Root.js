@@ -28,7 +28,7 @@ export default class Root extends React.Component {
 
     switch (this.props.client.plan) {
       case models.TodoList:
-        dialogs.push(<DialogForCreateTodoList />);
+        dialogs.push(<DialogForCreateTodoList key="dialog-for-create-todo-list" />);
         break;
 
       default:
@@ -40,7 +40,7 @@ export default class Root extends React.Component {
   render() {
     return (
       <Global modal={this.conductDialogs()} >
-        <PaneForListTodoList />
+        <PaneForListTodoList key="pane-for-list-todo-list" />
       </Global>
     );
   }
