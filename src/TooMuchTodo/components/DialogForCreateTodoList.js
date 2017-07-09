@@ -17,8 +17,8 @@ export default class DialogForCreateTodoList extends React.Component {
   render() {
     const { onSubmit } = this.props;
     return (
-      <form onSubmit={onSubmit}>
-        <Modal>
+      <Modal>
+        <form onSubmit={onSubmit}>
           <Dialog
             footer={<Button>Add</Button>}
             footerAside={
@@ -27,8 +27,8 @@ export default class DialogForCreateTodoList extends React.Component {
           >
             <TodoListDetail />
           </Dialog>
-        </Modal>
-      </form>
+        </form>
+      </Modal>
     );
   }
 }

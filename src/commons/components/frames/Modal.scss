@@ -1,7 +1,8 @@
 .commons--frame--modal {
   &,
   &__partition,
-  &__content {
+  &__content,
+  &__content > form {
     position: fixed;
     top: 0;
     right: 0;
@@ -15,11 +16,12 @@
     background: $COLOR_BACKGROUND_MODAL_PARTITION;
   }
 
-  &__content {
+  &__content,
+  &__content > form {
     text-align: center;
     overflow-y: scroll;
 
-    > * {
+    > *:not(form) {
       display: inline-block;
     }
 
